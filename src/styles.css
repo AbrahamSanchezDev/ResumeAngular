@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+.container{
+    padding: 0 1rem;
+}
+.btn{
+    display: inline-block;
+    border: none;
+    background-color: #555;
+    padding: 7px 20px;
+    cursor: pointer;
+}
+.btn:hover{
+    background: #666;
+}
+.deleteBut{
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;    
+    border-radius: 50%;
+    cursor: pointer;
+    float: right;
+}
+.inpuTextObj{  
+    display: inline;
+}
+.singleLine{
+    display: inline;
+    text-decoration: none;
+}
+.textToAdd{
+    margin-top: 2px;
+    background: #f4f4f4;
+    padding: 5px;
+    border-bottom: 1px #ccc dotted;
+}
+.inputForm{
+    display: flex;
+}
+.inputForm input[type='text']{
+    flex: 10;
+    padding: 5px;
+}
+.inputForm input[type='submit']{
+    flex: 2;
+    color:#f4f4f4;
+}
+.smallHeader{
+    background: rgb(53, 134, 241);
+    color: #f4f4f4;
+    text-align: center;
+    border-radius: 30px;
+     margin: 5px 10%;
+}
+.smallHeader a{
+    color: #fff;
+    text-decoration: none;
+}
+.expInputArea{
+    height: 150px;
+    /* margin: 20px 1%; */
+    width: 98%;
+    resize: none;
+}
