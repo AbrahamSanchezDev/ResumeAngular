@@ -1,0 +1,13 @@
+<div>
+    <!-- Adds a input field together with a submit button and listen to the addTextData event -->
+    <app-add-text (addTextData)="addData($event)" tempText="Add Text To Json" addText="Add"></app-add-text>
+    <!-- Generate all the Texts that are in the variable myText -->
+    <app-input-area *ngFor="let theText of myText" [text]="theText" (onDeleteText)="deleteTextData($event)">
+    </app-input-area>
+    <app-header title="Download File" cssClass="smallHeader"></app-header>
+    <app-add-text (addTextData)="createJson($event)" tempText="File name..." addText="Download"></app-add-text>
+
+
+    <app-experience-obj></app-experience-obj>
+
+</div>

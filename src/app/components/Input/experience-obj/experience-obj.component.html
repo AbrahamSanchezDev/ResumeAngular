@@ -1,0 +1,17 @@
+<div class="expObj">
+    <div class="inputObj">
+        <label>Title</label>
+        <input type="text" [(ngModel)]="title">
+    </div>
+    <div class="inputObj">
+        <label>Link</label>
+        <input type="text" [(ngModel)]="link">
+    </div>
+    <div class="inputObj">
+        <label>ImagePath</label>
+        <input type="text" [(ngModel)]="imgPath">
+    </div>
+    <app-multi-line-to-json cssClass="expInputArea" #multiText></app-multi-line-to-json>
+    <app-header title="Download Experience File" cssClass="smallHeader"></app-header>
+    <app-add-text (addTextData)="createExp($event)" tempText="File name..." addText="Download File"></app-add-text>
+</div>

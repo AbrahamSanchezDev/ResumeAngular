@@ -1,0 +1,4 @@
+<app-header title="Todos"></app-header>
+<app-add-todo (addTodo)="addTodo($event)" tempText="Add TODO...."></app-add-todo>
+<app-todo-item *ngFor="let todo of todos" [todo]="todo" (deleteTodo)="deleteTodo($event)">
+</app-todo-item>
