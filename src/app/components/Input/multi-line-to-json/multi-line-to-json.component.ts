@@ -22,5 +22,6 @@ export class MultiLineToJsonComponent implements OnInit {
     }
     let textInArray = this.content.split("\n");
     console.log(textInArray);
+    return textInArray;
   }
 }
