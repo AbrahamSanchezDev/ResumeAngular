@@ -1,3 +1,13 @@
+:root{
+	--bodyBg : url("assets/img/header-bg.jpg");
+	--introBg : url('assets/img/bg_3.jpg');
+	--liBg : url('assets/img/button_3.png');
+	--mainBg : url('assets/img/bg_7.png');
+	--infoListBg : url('assets/img/pattern.png');
+	--selected : url('assets/img/button_5.png');
+	--projectsBg : url('assets/img/bg_7_3.png');
+	/* --hrImage : url('assets/img/hr.gif'); */
+}
 /* You can add global styles to this file, and also import other style files */
 *{
     box-sizing: border-box;
@@ -5,8 +15,13 @@
     padding: 0;
 }
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    background-image: var(--bodyBg);
+    /* font-family: Arial, Helvetica, sans-serif; */
     line-height: 1.4;
+    color: rgb(235, 235, 235);
+    font-family:  "San Francisco","Helvetica Neue",Helvetica,Arial;
+    /* line-height: 1.4em; */
+	font-size: 14px;
 }
 a{
     color: #333;
@@ -29,7 +44,7 @@ a{
     background: #ff0000;
     color: #fff;
     border: none;
-    padding: 5px 9px;    
+    padding: 3px 7px;    
     border-radius: 50%;
     cursor: pointer;
     float: right;
@@ -42,8 +57,8 @@ a{
     text-decoration: none;
 }
 .textToAdd{
-    margin-top: 2px;
-    background: #f4f4f4;
+    /* margin-top: 2px; */
+    background: rgb(77, 77, 77);
     padding: 5px;
     border-bottom: 1px #ccc dotted;
 }
@@ -59,7 +74,7 @@ a{
     color:#f4f4f4;
 }
 .smallHeader{
-    background: rgb(53, 134, 241);
+    background: rgb(12, 71, 148);
     color: #f4f4f4;
     text-align: center;
     border-radius: 30px;

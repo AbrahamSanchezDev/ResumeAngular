@@ -1,0 +1,19 @@
+.expObj {
+	color: rgb(235, 235, 235);
+	font-size: 15px;
+	padding-top: 5px;
+	text-align: center;
+	margin: 3px 5px;
+	background-color: #648ecc38;
+	border: 1px white solid;
+	border-radius: 15px;
+}	
+.expText{
+	animation: fadeInText 4s; 
+}
+.image_1 {
+	width: 90%;
+	height: 100px;
+	object-fit: contain;
+	 animation: fadeIn 2s; 
+}	

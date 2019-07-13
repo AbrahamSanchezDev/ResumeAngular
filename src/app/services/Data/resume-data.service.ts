@@ -1,23 +1,30 @@
 import { Injectable } from '@angular/core';
+import { JsonLoaderService } from '../json-loader.service';
+import { ExpObjModule } from 'src/app/models/exp-obj/exp-obj.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResumeDataService {
-
-  experience = [{
-    title: "The Capture Worlds",
-    text: 'The Capture Worlds a personal project launched in 2018. \
-     It’s just me working on it doing Programming (C#), \
-     3d modeling, texturing, rigging, animating and management. \
-     This is my passion game that i wanted since long ago \
-     and the reason that I started to learn programming and video game development'
-  }];
-
-
-  constructor() { }
+  allExpObjs: ExpObjModule[] = [];
+  allExpNames: string[] = [
+    "expObj_1.json",
+    "expObj_2.json",
+    "expObj_3.json"
+  ];
+  constructor(private jsonLoader: JsonLoaderService) { }
 
   getExperience() {
-    return this.experience;
+    if (this.allExpObjs != null && this.allExpObjs.length > 0) {
+      return
+    }
+    for (let i = 0; i < this.allExpNames.length; i++) {
+      this.getExpObjWithName(this.allExpNames[i]);
+    }
+  }
+  private getExpObjWithName(expName: string) {
+    this.jsonLoader.getExpObjs(expName).subscribe(data => {
+      this.allExpObjs.push(data);
+    })
   }
 }

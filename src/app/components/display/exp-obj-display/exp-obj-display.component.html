@@ -1,0 +1,6 @@
+<div class="expObj">
+    <h2> {{expObj.title}}</h2>
+    <a href="{{expObj.link}}" target="_blanck"> <img src="{{(imgPath + expObj.img)}}" class="image_1"></a>
+
+    <p *ngFor="let expObj of des" class="expText"> {{expObj}}</p>
+</div>

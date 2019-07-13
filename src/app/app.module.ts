@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { TextToJsonComponent } from './components/text-to-json/text-to-json.comp
 import { AddTextComponent } from './components/Input/add-text/add-text.component';
 import { MultiLineToJsonComponent } from './components/Input/multi-line-to-json/multi-line-to-json.component';
 import { ExperienceObjComponent } from './components/Input/experience-obj/experience-obj.component';
+import { ExpObjDisplayComponent } from './components/display/exp-obj-display/exp-obj-display.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,14 @@ import { ExperienceObjComponent } from './components/Input/experience-obj/experi
     TextToJsonComponent,
     AddTextComponent,
     MultiLineToJsonComponent,
-    ExperienceObjComponent
+    ExperienceObjComponent,
+    ExpObjDisplayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
