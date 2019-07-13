@@ -14,9 +14,9 @@ export class TextToJsonComponent implements OnInit {
   ngOnInit() {
     //TODO remove this and get the data from json
     this.myText = [
-      "Add this",
+      "Add this text",
       "And This too!",
-      "Mualalala",
+      "One More!",
       "And another one!"
     ]
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MultiLineToJsonComponent } from '../multi-line-to-json/multi-line-to-json.component';
 import { DownloadToolService } from 'src/app/library/download-tool.service';
+import { ExpObjModule } from 'src/app/models/exp-obj/exp-obj.module';
+
 
 @Component({
   selector: 'app-experience-obj',
@@ -10,21 +12,16 @@ import { DownloadToolService } from 'src/app/library/download-tool.service';
 export class ExperienceObjComponent implements OnInit {
   @ViewChild('multiText', { static: false }) multiLineText: MultiLineToJsonComponent;
 
-  title: string;
-  link: string;
-  imgPath: string;
+  expObj: ExpObjModule = new ExpObjModule();
   constructor(private downloadTool: DownloadToolService) { }
 
   ngOnInit() {
   }
-  //TODO Create the ExpObjModule and generate one and save it as json
+
+  //Create the ExpObj description and save it as json
   createExp(theText: any) {
-    let theTextInAraay = this.multiLineText.generateText();
-    console.log(this.title);
-    console.log(this.link);
-    console.log(this.imgPath);
-    console.log(theText);
-    //Change this for the ExpObjModule
-    this.downloadTool.DownloadTextToFileAsJson(theTextInAraay, theText);
+    let theTextInArray = this.multiLineText.generateText();
+    this.expObj.description = theTextInArray
+    this.downloadTool.DownloadTextToFileAsJson(this.expObj, theText);
   }
 }

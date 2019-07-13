@@ -1,4 +1,5 @@
 <div>
+    <app-header title="Text To Json"></app-header>
     <!-- Adds a input field together with a submit button and listen to the addTextData event -->
     <app-add-text (addTextData)="addData($event)" tempText="Add Text To Json" addText="Add"></app-add-text>
     <!-- Generate all the Texts that are in the variable myText -->
@@ -6,8 +7,6 @@
     </app-input-area>
     <app-header title="Download File" cssClass="smallHeader"></app-header>
     <app-add-text (addTextData)="createJson($event)" tempText="File name..." addText="Download"></app-add-text>
-
-
+    <!-- Generate json file with the ExpObjModule variables and has multi line for setting the layout of the expdisplay -->
     <app-experience-obj></app-experience-obj>
-
 </div>

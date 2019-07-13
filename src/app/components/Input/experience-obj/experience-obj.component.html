@@ -1,15 +1,16 @@
 <div class="expObj">
+    <app-header title="Experience Json Creation"></app-header>
     <div class="inputObj">
         <label>Title</label>
-        <input type="text" [(ngModel)]="title">
+        <input type="text" [(ngModel)]="expObj.title">
     </div>
     <div class="inputObj">
         <label>Link</label>
-        <input type="text" [(ngModel)]="link">
+        <input type="text" [(ngModel)]="expObj.link">
     </div>
     <div class="inputObj">
         <label>ImagePath</label>
-        <input type="text" [(ngModel)]="imgPath">
+        <input type="text" [(ngModel)]="expObj.img">
     </div>
     <app-multi-line-to-json cssClass="expInputArea" #multiText></app-multi-line-to-json>
     <app-header title="Download Experience File" cssClass="smallHeader"></app-header>
