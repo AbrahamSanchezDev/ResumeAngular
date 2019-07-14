@@ -98,6 +98,13 @@ export class ResumeDataService {
       altText: "YouTube"
     }
   ];
+
+  summeryAndEducation: string[] = [
+    "I been learning and working on Unity3d for more than 6 years focusing in programming(c#) for pc games.I been a self-taught person more than 11 years.",
+    "-",
+    "Right now I'm studying on a government open education system so i can get my Bachelor's Degree , learning Unreal 4 Engine, c++, python and asp.net mvc ,while working in my video game The Capture Worlds.",
+    "I also have been learning Japanese in my free time because i would love to visit Japan in the future , i realy like the culture ,its morals and all it has to offer."
+  ];
   //Get the Skills
   getSkills(): ListObjModule[] {
     return this.skills;
@@ -120,5 +127,9 @@ export class ResumeDataService {
   //Get Media data from local data
   getMediaData(): ContactMediaModule[] {
     return this.contactMedia;
+  }
+  //get education and summery text from local data
+  getSummeryAndEducationText(): string[] {
+    return this.summeryAndEducation;
   }
 }

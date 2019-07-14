@@ -1,6 +1,6 @@
 .mainBg{
     border-radius: 15px;
-    margin: 1px 35px;
+	margin: 1px 35px;
 }	
 .skillsMain{	
 	padding-left: 20px;
@@ -10,3 +10,12 @@
 	justify-content: space-around;
 	animation: fadeIn 1s; 
 }
+.summery {
+	margin-top: 10px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 16px;
+	font-family: serif;
+	min-height: 100px;
+	padding-top: 5px;
+}	

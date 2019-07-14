@@ -20,6 +20,7 @@ import { ExperienceObjComponent } from './components/Input/experience-obj/experi
 import { ExpObjDisplayComponent } from './components/display/exp-obj-display/exp-obj-display.component';
 import { ResumeIntroComponent } from './components/resume-intro/resume-intro.component';
 import { ListDisplayComponent } from './components/display/list-display/list-display.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ListDisplayComponent } from './components/display/list-display/list-dis
     ExperienceObjComponent,
     ExpObjDisplayComponent,
     ResumeIntroComponent,
-    ListDisplayComponent
+    ListDisplayComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,

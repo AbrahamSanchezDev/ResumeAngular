@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TodosComponent } from './components/todos/todos.component';
 import { ResumeComponent } from './components/resume/resume.component';
-import { TextToJsonComponent } from './components/text-to-json/text-to-json.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 
 const routes: Routes = [
   { path: '', component: ResumeComponent },
-  { path: 'todos', component: TodosComponent },
-  { path: 'textToJson', component: TextToJsonComponent }
+  { path: 'projects', component: ProjectsComponent }
 ];
 
 @NgModule({

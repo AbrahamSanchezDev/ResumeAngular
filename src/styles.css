@@ -6,7 +6,6 @@
 	--infoListBg : url('assets/img/pattern.png');
 	--selected : url('assets/img/button_5.png');
 	--projectsBg : url('assets/img/bg_7_3.png');
-	/* --hrImage : url('assets/img/hr.gif'); */
 }
 /* You can add global styles to this file, and also import other style files */
 *{
@@ -16,11 +15,9 @@
 }
 body{
     background-image: var(--bodyBg);
-    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.4;
     color: rgb(235, 235, 235);
-    font-family:  "San Francisco","Helvetica Neue",Helvetica,Arial;
-    /* line-height: 1.4em; */
 	font-size: 14px;
 }
 a{
@@ -65,6 +62,12 @@ a{
 	margin: 5px 10%;
     background-image: var(--infoListBg);
     padding: 10px 0px;
+}
+.blackBg{
+    background-image: var(--infoListBg);
+    color: #f6efe8;
+    border-radius: 15px;
+    border: 1px white solid;
 }	  
 .infoList ul {
     text-align: center;
@@ -97,7 +100,6 @@ a{
     text-decoration: none;
 }
 .textToAdd{
-    /* margin-top: 2px; */
     background: rgb(77, 77, 77);
     padding: 5px;
     border-bottom: 1px #ccc dotted;
@@ -126,7 +128,6 @@ a{
 }
 .expInputArea{
     height: 150px;
-    /* margin: 20px 1%; */
     width: 98%;
     resize: none;
 }
