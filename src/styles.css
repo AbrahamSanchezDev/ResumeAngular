@@ -161,3 +161,6 @@ a{
 	color: beige;
 	font-size: 13px;
 } 
+.hrDotted{
+	border: 1px dotted rgba(175, 175, 175, 0.534);
+}
