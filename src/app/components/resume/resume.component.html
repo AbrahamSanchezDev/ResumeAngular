@@ -1,10 +1,12 @@
 <div class="mainBg">
     <app-resume-intro></app-resume-intro>
     <section>
-        <h2 class="h2Header">Experience</h2>
-        <hr class="hrDotted">
-        <div class="expArea">
-            <app-exp-obj-display *ngFor="let expObj of expObjs" [expObj]="expObj"></app-exp-obj-display>
+        <div class="bg-1">
+            <h2 class="h2Header">Experience</h2>
+            <hr class="hrDotted">
+            <div class="expArea">
+                <app-exp-obj-display *ngFor="let expObj of expObjs" [expObj]="expObj"></app-exp-obj-display>
+            </div>
         </div>
     </section>
     <section>

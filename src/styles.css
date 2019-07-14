@@ -164,3 +164,7 @@ a{
 .hrDotted{
 	border: 1px dotted rgba(175, 175, 175, 0.534);
 }
+.bg-1 {
+	background-color: #347dec36;
+	border-radius: 40px;
+}	
