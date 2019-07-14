@@ -1,0 +1,15 @@
+<div class="skills">
+    <h2 class="h2Header">
+        {{title}}
+    </h2>
+    <hr>
+    <div class="split"></div>
+    <div class="skillsMain">
+        <div *ngFor="let arg of skills" class="skillsObj">
+            <h4>{{arg.title}} </h4>
+            <ul *ngFor="let list of arg.list">
+                <li [innerHTML]=list> </li>
+            </ul>
+        </div>
+    </div>
+</div>

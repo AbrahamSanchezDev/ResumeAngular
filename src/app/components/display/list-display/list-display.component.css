@@ -1,0 +1,29 @@
+.skills {
+	background-color: #648ecc38;
+	text-align: left;
+    padding-top:5px;	
+    padding-bottom: 5px;	
+}	
+.skillsObj{
+	animation: fadeInText 3s; 
+}
+.skillsObj h4 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.skillsObj ul{ 
+    margin-left: 30px;
+}
+.split{
+	height: 7px;
+	width: 100%;
+	background-origin: padding-box;	
+}
+.skillsMain{	
+	padding-left: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-around;
+	animation: fadeIn 1s; 
+}

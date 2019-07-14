@@ -40,6 +40,46 @@ a{
 .btn:hover{
     background: #666;
 }
+.intro {
+	background-image: var(--introBg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-origin: content-box;
+	min-height: 50px;
+	line-height: 1.7em;
+	text-align: center;
+	font-family: cursive;
+	font-size: 100%;
+	text-decoration: orange;
+    color: white;
+    padding: 5px 0px ;
+}
+.intro h1{
+    padding-bottom: 5px;
+}
+.infoList {
+	border: 1px white solid;
+	border-radius: 15px;
+	color: #f6efe8;
+	margin: 5px 10%;
+    background-image: var(--infoListBg);
+    padding: 10px 0px;
+}	  
+.infoList ul {
+    text-align: center;
+    list-style: none;
+}
+.media {
+    text-align: center;
+}	  
+.media img {
+    width: 27px;
+    height: 27px;
+}	
+.titleName {
+	padding-top: 15px;
+}	 
 .deleteBut{
     background: #ff0000;
     color: #fff;
@@ -90,3 +130,34 @@ a{
     width: 98%;
     resize: none;
 }
+.expArea {
+	border-radius: 5px;
+	text-align: left;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}		 
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+		width: 25%;
+	}
+	to{
+ 		opacity: 1; 
+		width: 100%;
+	}
+}
+@keyframes fadeInText{
+	from{
+		opacity: 0;
+	}
+	to{
+ 		opacity: 1; 
+	}
+}
+.h2Header{
+    padding-top: 10px;
+    text-align: center;
+	color: beige;
+	font-size: 13px;
+} 

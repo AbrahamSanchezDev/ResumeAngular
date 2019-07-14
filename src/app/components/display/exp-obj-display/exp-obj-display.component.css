@@ -10,6 +10,7 @@
 }	
 .expText{
 	animation: fadeInText 4s; 
+	margin: 0 10px;
 }
 .image_1 {
 	width: 90%;

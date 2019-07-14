@@ -6,7 +6,7 @@ import { TextToJsonComponent } from './components/text-to-json/text-to-json.comp
 
 
 const routes: Routes = [
-  { path: 'resume', component: ResumeComponent },
+  { path: '', component: ResumeComponent },
   { path: 'todos', component: TodosComponent },
   { path: 'textToJson', component: TextToJsonComponent }
 ];

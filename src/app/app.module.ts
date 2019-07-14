@@ -18,6 +18,8 @@ import { AddTextComponent } from './components/Input/add-text/add-text.component
 import { MultiLineToJsonComponent } from './components/Input/multi-line-to-json/multi-line-to-json.component';
 import { ExperienceObjComponent } from './components/Input/experience-obj/experience-obj.component';
 import { ExpObjDisplayComponent } from './components/display/exp-obj-display/exp-obj-display.component';
+import { ResumeIntroComponent } from './components/resume-intro/resume-intro.component';
+import { ListDisplayComponent } from './components/display/list-display/list-display.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ExpObjDisplayComponent } from './components/display/exp-obj-display/exp
     AddTextComponent,
     MultiLineToJsonComponent,
     ExperienceObjComponent,
-    ExpObjDisplayComponent
+    ExpObjDisplayComponent,
+    ResumeIntroComponent,
+    ListDisplayComponent
   ],
   imports: [
     BrowserModule,

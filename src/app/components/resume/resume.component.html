@@ -1,3 +1,13 @@
-<div>
-    <app-exp-obj-display *ngFor="let expObj of expObjs" [expObj]="expObj"></app-exp-obj-display>
+<div class="mainBg">
+    <app-resume-intro></app-resume-intro>
+    <section>
+        <h2 class="h2Header">Experience</h2>
+        <hr>
+        <div class="expArea">
+            <app-exp-obj-display *ngFor="let expObj of expObjs" [expObj]="expObj"></app-exp-obj-display>
+        </div>
+    </section>
+    <section>
+        <app-list-display title="Technical Skills"></app-list-display>
+    </section>
 </div>

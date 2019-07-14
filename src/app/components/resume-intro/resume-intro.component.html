@@ -1,0 +1,18 @@
+<div class="infoList">
+    <ul>
+        <li>Email: abraham_gto@hotmail.com</li>
+        <li>Skype: lholykillerl</li>
+        <li>From : Salamanca, Guanajuato in Mexico</li>
+        <li>
+            I'm a single mexican 31 years old.I'm willing to relocate.
+            <br>
+            Some of my good points would be that i'm honest,
+            good-natured,open-minded and determined.
+        </li>
+    </ul>
+</div>
+<div class="media">
+    <a *ngFor="let info of contactMedia" href="{{info.link}}" target="_blank">
+        <img src="{{info.src}}" alt="{{info.altText}}">
+    </a>
+</div>
