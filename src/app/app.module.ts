@@ -48,6 +48,10 @@ import { ProjectsComponent } from './components/projects/projects.component';
     FormsModule,
     HttpClientModule
   ],
+  entryComponents: [
+    TodosComponent,
+    ExperienceObjComponent,
+    TextToJsonComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

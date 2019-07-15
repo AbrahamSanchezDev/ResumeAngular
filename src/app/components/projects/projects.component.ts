@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { ProjectObjModule } from 'src/app/models/project-obj/project-obj.module';
+import { ProjectsDataService } from 'src/app/services/projects-data.service';
+import { TodosComponent } from '../todos/todos.component';
 
 @Component({
   selector: 'app-projects',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  projects: ProjectObjModule[];
+  description: string;
+  componentToLoad = TodosComponent;
+  @ViewChild('container', { static: false }) entry: ViewContainerRef;
+  constructor(private projectsData: ProjectsDataService, private viewContainerRef: ViewContainerRef, private resolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
+    this.projects = this.projectsData.getProjects();
+    if (this.projects.length > 0) {
+      this.onSelect(this.projects[0]);
+    }
   }
+  public onSelect(project: ProjectObjModule) {
+
+    this.description = project.description;
+    this.componentToLoad = project.component;
+  }
+
 
 }

@@ -8,21 +8,23 @@
         <div class="projects">
             <div class="projectSelector ">
                 <h3>Projects:</h3>
-                <br>
-
-                <button>
-                    TODOS
-                </button>
+                <div *ngFor="let arg of projects">
+                    <button (click)="onSelect(arg)">
+                        {{arg.title}}
+                    </button>
+                </div>
             </div>
 
 
             <div class="projectArea">
                 <div class="des">
+                    <p [innerHtml]="description">
 
+                    </p>
                 </div>
-                <div class="project">
+                <ng-container *ngComponentOutlet="componentToLoad" class="project">
 
-                </div>
+                </ng-container>
             </div>
         </div>
     </section>
