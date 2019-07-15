@@ -8,6 +8,10 @@
 .skillsObj{
 	animation: fadeInText 3s; 
 }
+.skillsObj:hover{
+	animation: scaleUp 0.5s; 
+    transform: scale(1.2);
+}
 .skillsObj h4 {
     margin-bottom: 5px;
     margin-top: 5px;

@@ -8,6 +8,10 @@
 	border: 1px white solid;
 	border-radius: 15px;	
 }	
+.expObj:hover{
+	animation: scaleUp 0.5s; 
+    transform: scale(1.2);
+}
 .expText{
 	animation: fadeInText 4s; 
 	margin: 0 10px;
