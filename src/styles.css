@@ -5,7 +5,11 @@
 	--mainBg : url('assets/img/bg_7.png');
 	--infoListBg : url('assets/img/pattern.png');
 	--selected : url('assets/img/button_5.png');
-	--projectsBg : url('assets/img/bg_7_3.png');
+    --projectsBg : url('assets/img/bg_7_3.png');
+
+    --spriteSheet : url('assets/img/presets/spritesheet.png');
+    --defaultImg : url('assets/img/back.png');
+    --fileImg : url('assets/img/fileIcon.png');
 }
 /* You can add global styles to this file, and also import other style files */
 *{

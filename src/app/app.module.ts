@@ -21,6 +21,7 @@ import { ExpObjDisplayComponent } from './components/display/exp-obj-display/exp
 import { ResumeIntroComponent } from './components/resume-intro/resume-intro.component';
 import { ListDisplayComponent } from './components/display/list-display/list-display.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { FlipGameComponent } from './components/Project/flip-game/flip-game.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
     ExpObjDisplayComponent,
     ResumeIntroComponent,
     ListDisplayComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    FlipGameComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
   entryComponents: [
     TodosComponent,
     ExperienceObjComponent,
-    TextToJsonComponent],
+    TextToJsonComponent,
+    FlipGameComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
