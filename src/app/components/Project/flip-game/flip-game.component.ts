@@ -62,6 +62,7 @@ export class FlipGameComponent implements OnInit {
         break;
     }
   }
+  //set the given imgs to be display
   private loadImgs(imgs: string[]) {
     this.loadedImgs = imgs;
   }
