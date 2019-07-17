@@ -1,28 +1,50 @@
 <div class="flipBody">
+    <br>
+    <br>
     <hr>
-    <div class="presetsImgs">
-        <div *ngFor="let arg of presetsSelect">
-            <button class="{{arg.css}}" (click)="onPreset(arg.id)">
-            </button>
+    <div class="topFlip">
+        <div class="presetsImgs">
+            <div *ngFor="let arg of presetsSelect">
+                <button class="{{arg.css}}" (click)="onPreset(arg.id)">
+                </button>
+            </div>
+            <div>
+                <p> Max : 10</p>
+                <br>
+                <input type="file" accept="image/*" name="image" id="fileSelector" multiple=true
+                    (change)="onChange($event)">
+            </div>
         </div>
-    </div>
-    <input type="file" accept="image/*" name="image" id="fileSelector" multiple=true (change)="onChange($event)">
-    <h5>Images To Display:</h5>
-    <div class="presetsImgs">
-        <div *ngFor="let img of loadedImgs">
-            <img class="{{getCss(img)}}" src="{{getDisplay(img)}}" alt="">
+        <div class="inputArea">
+            Difficulty :
+            <button class="smallButtons" (click)="increaseLevel(false)">-</button>
+            <label class="curLevel">{{curLevel}}</label>
+            <button class="smallButtons" (click)="increaseLevel(true)">+</button>
         </div>
-    </div>
-    <div class="inputArea">
-        Difficulty :
-        <button class="smallButtons" (click)="increaseLevel(false)">-</button>
-        <label class="curLevel">{{curLevel}}</label>
-        <button class="smallButtons" (click)="increaseLevel(true)">+</button>
-    </div>
-    <div class="presetsImgs">
         <div>
-            <app-images-grid-display (onSelected)="onSelect($event)" [curImagesData]="gameImgs">
-            </app-images-grid-display>
+            {{displayText}}
+        </div>
+        <button class="startBut " (click)="onStartPress()">{{startText}}</button>
+    </div>
+    <hr>
+    <div class="mainCont">
+        <div class="leftFlip">
+            <h5>Images To Display:</h5>
+            <div class="usingImgs">
+                <div *ngFor="let img of loadedImgs">
+                    <img class="{{getCss(img)}}" src="{{getDisplay(img)}}" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="grid">
+                <div>
+                    <app-images-grid-display (onSelected)="onSelect($event)" [curImagesData]="gameImgs">
+                    </app-images-grid-display>
+                </div>
+            </div>
         </div>
     </div>
+    <br>
 </div>

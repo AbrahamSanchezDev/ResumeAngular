@@ -42,10 +42,13 @@ export class FlipGameComponent implements OnInit {
   usersImgs: ImgDataModule[] = [];
 
   curLevel: number = 4;
-  private maxLevel: number = 10;
+  private maxLevel: number = 7;
   private imageWidth: number = 66;
 
   private defaultImg: string = "assets/img/back.png";
+
+  startText: string = "Start Game!";
+  displayText: string = " ";
   constructor() { }
 
   ngOnInit() {
@@ -96,10 +99,15 @@ export class FlipGameComponent implements OnInit {
   onChange(event: any) {
 
     this.usersImgs.length = 0;
-    for (let i = 0; i < event.target.files.length; i++) {
+    let totalImgs = event.target.files.length;
+    if (totalImgs > 10) {
+      totalImgs = 10;
+    }
+    for (let i = 0; i < totalImgs; i++) {
       const reader = new FileReader();
       reader.onload = () => this.addToUsers(reader.result);
       reader.readAsDataURL(event.target.files[i]);
+
     }
     this.onPreset(3);
   }
@@ -124,8 +132,6 @@ export class FlipGameComponent implements OnInit {
   createGrid() {
 
     let totalWidth = (this.curLevel * this.imageWidth);
-    console.log(totalWidth);
-
     document.documentElement.style.setProperty('--gridX', totalWidth.toString() + "px");
     document.documentElement.style.setProperty('--gridY', totalWidth.toString() + "px");
     this.setLevelImgs();
@@ -141,5 +147,10 @@ export class FlipGameComponent implements OnInit {
     for (let i = 0; i < total; i++) {
       this.gameImgs.push({ css: "fileSize", src: this.defaultImg, id: i });
     }
+  }
+
+  onStartPress() {
+    this.startText = "Reset!";
+    this.displayText = "Game Started!";
   }
 }

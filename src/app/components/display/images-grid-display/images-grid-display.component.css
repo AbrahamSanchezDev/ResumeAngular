@@ -4,10 +4,9 @@
 	margin: 0;
 	padding: 0;
 }
-.gridObj{    
-
+.gridObj{ 
 	display: flex;
-	flex-wrap: wrap-reverse;
+	flex-wrap: wrap;
 	align-items:center;
 	justify-content: center;
 	flex-basis: 10%;

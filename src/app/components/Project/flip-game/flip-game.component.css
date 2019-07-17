@@ -6,13 +6,52 @@
     text-align: center;
     align-content: center;
 }
+.topFlip{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  
+    margin-left: 2px;
+    margin-right: 30px;
+    width: 100%;
+    
+}
+.startBut{
+    height: 40px;
+    width: 150px;
+
+    background-image: var(--introBg);
+    opacity: .9;
+    color: #ffffff;
+    text-shadow: 2px 2px rgb(15, 15, 15);
+    border-radius: 30px;
+    font-size: 20px;
+    background-size: 100%;
+    background-position: 50% 50%;
+    margin-top: 5px;
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.mainCont{
+    display: flex;
+    flex-wrap: wrap;
+}
+.leftFlip{
+    margin-left: 5px;
+    float: left;
+    width: 128px;
+}
+.usingImgs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 128px;
+}
 .presetsImgs{
 	display: flex;
-	flex-wrap: wrap;
-	width: 95%;
-	margin: auto;
-	align-items:center;
-    justify-content: center;
+    flex-wrap: wrap;
+    /* float: left; */
+	align-items:left;
+    justify-content: left;
     border: dotted 1px gray;
 }
 .defaultImg{
@@ -52,5 +91,7 @@
 }
 .curLevel{
     padding: 5px 10px;
-	border: 2px solid rgba(180, 180, 180, 0.712);
+}
+.grid{
+    width: 100%; 
 }
