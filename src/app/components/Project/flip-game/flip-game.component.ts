@@ -134,19 +134,16 @@ export class FlipGameComponent implements OnInit {
     let totalWidth = (this.curLevel * this.imageWidth);
     document.documentElement.style.setProperty('--gridX', totalWidth.toString() + "px");
     document.documentElement.style.setProperty('--gridY', totalWidth.toString() + "px");
-    this.setLevelImgs();
-  }
-
-  onSelect(img: ImgDataModule) {
-    console.log("on flip " + img.id);
-  }
-
-  setLevelImgs() {
+    //Set the data to a clean version
     const total = this.curLevel * this.curLevel;
     this.gameImgs.length = 0;
     for (let i = 0; i < total; i++) {
       this.gameImgs.push({ css: "fileSize", src: this.defaultImg, id: i });
     }
+  }
+
+  onSelect(img: ImgDataModule) {
+    console.log("TODO on flip " + img.id);
   }
 
   onStartPress() {
