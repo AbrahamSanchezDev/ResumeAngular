@@ -1,0 +1,26 @@
+
+.gridParent{
+	line-height : 1;
+	margin: 0;
+	padding: 0;
+}
+.gridObj{    
+
+	display: flex;
+	flex-wrap: wrap-reverse;
+	align-items:center;
+	justify-content: center;
+	flex-basis: 10%;
+	margin: 10px 10px;
+	height: var(--gridX);
+	width: var(--gridY);
+}
+.gridObj a {
+	margin: 0;
+	padding: 0;
+}
+.gridObj img{
+	cursor: pointer;
+	
+}
+   

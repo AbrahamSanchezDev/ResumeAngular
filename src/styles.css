@@ -9,7 +9,10 @@
 
     --spriteSheet : url('assets/img/presets/spritesheet.png');
     --defaultImg : url('assets/img/back.png');
-    --fileImg : url('assets/img/fileIcon.png');
+    --fileImg : url('assets/img/fileIcon.png');    
+
+    --gridX : 150px;
+    --gridY: 200px;
 }
 /* You can add global styles to this file, and also import other style files */
 *{
@@ -181,3 +184,171 @@ a{
 	background-color: #347dec36;
 	border-radius: 40px;
 }	
+.toCenter{
+    text-align: center;
+    justify-content: center;
+   margin: auto;
+}
+
+.preset {
+    background-image: var(--spriteSheet);
+    background-repeat: no-repeat;
+    display: block;
+    background-color: transparent;
+    border: none;
+}
+.fileSize{
+    width: 64px;
+    height: 64px;
+}
+.animal_0 {
+    width: 64px;
+    height: 64px;
+    background-position: -5px -5px;
+}
+.animal_1 {
+    width: 64px;
+    height: 64px;
+    background-position: -79px -5px;
+}
+.animal_2 {
+    width: 64px;
+    height: 64px;
+    background-position: -153px -5px;
+}
+.animal_3 {
+    width: 64px;
+    height: 64px;
+    background-position: -227px -5px;
+}
+.animal_4 {
+    width: 64px;
+    height: 64px;
+    background-position: -301px -5px;
+}
+.animal_5 {
+    width: 64px;
+    height: 64px;
+    background-position: -5px -79px;
+}
+.animal_6 {
+    width: 64px;
+    height: 64px;
+    background-position: -79px -79px;
+}
+.animal_7 {
+    width: 64px;
+    height: 64px;
+    background-position: -153px -79px;
+}
+.animal_8 {
+    width: 64px;
+    height: 64px;
+    background-position: -227px -79px;
+}
+.animal_9 {
+    width: 64px;
+    height: 64px;
+    background-position: -301px -79px;
+}
+
+.food_0 {
+    width: 64px;
+    height: 64px;
+    background-position: -5px -153px;
+}
+.food_1 {
+    width: 64px;
+    height: 64px;
+    background-position: -79px -153px;
+}
+.food_2 {
+    width: 64px;
+    height: 64px;
+    background-position: -153px -153px;
+}
+.food_3 {
+    width: 64px;
+    height: 64px;
+    background-position: -227px -153px;
+}
+.food_4 {
+    width: 64px;
+    height: 64px;
+    background-position: -301px -153px;
+}
+.food_5 {
+    width: 64px;
+    height: 64px;
+    background-position: -5px -227px;
+}
+.food_6 {
+    width: 64px;
+    height: 64px;
+    background-position: -79px -227px;
+}
+.food_7 {
+    width: 64px;
+    height: 64px;
+    background-position: -153px -227px;
+}
+.food_8 {
+    width: 64px;
+    height: 64px;
+    background-position: -227px -227px;
+}
+.food_9 {
+    width: 64px;
+    height: 64px;
+    background-position: -301px -227px;
+}
+.monster_0 {
+    width: 64px;
+    height: 64px;
+    background-position: -5px -301px;
+}
+.monster_1 {
+    width: 64px;
+    height: 64px;
+    background-position: -79px -301px;
+}
+.monster_2 {
+    width: 64px;
+    height: 64px;
+    background-position: -153px -301px;
+}
+.monster_3 {
+    width: 64px;
+    height: 64px;
+    background-position: -227px -301px;
+}
+.monster_4 {
+    width: 64px;
+    height: 64px;
+    background-position: -301px -301px;
+}
+.monster_5 {
+    width: 64px;
+    height: 64px;
+    background-position: -375px -5px;
+}
+.monster_6 {
+    width: 64px;
+    height: 64px;
+    background-position: -375px -79px;
+}
+.monster_7 {
+    width: 64px;
+    height: 64px;
+    background-position: -375px -153px;
+}
+.monster_8 {
+    width: 64px;
+    height: 64px;
+    background-position: -375px -227px;
+}
+.monster_9 {
+    width: 64px;
+    height: 64px;
+    background-position: -375px -301px;
+}

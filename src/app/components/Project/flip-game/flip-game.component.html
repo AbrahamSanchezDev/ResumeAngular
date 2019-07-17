@@ -2,14 +2,27 @@
     <hr>
     <div class="presetsImgs">
         <div *ngFor="let arg of presetsSelect">
-            <button class="{{arg.css}}" (click)="onPreset(arg.id)"></button>
+            <button class="{{arg.css}}" (click)="onPreset(arg.id)">
+            </button>
         </div>
     </div>
-    <input type="file" accept="image/*" name="image" id="fileSelector" multiple=true>
+    <input type="file" accept="image/*" name="image" id="fileSelector" multiple=true (change)="onChange($event)">
     <h5>Images To Display:</h5>
     <div class="presetsImgs">
         <div *ngFor="let img of loadedImgs">
-            <img class="{{img}}">
+            <img class="{{getCss(img)}}" src="{{getDisplay(img)}}" alt="">
+        </div>
+    </div>
+    <div class="inputArea">
+        Difficulty :
+        <button class="smallButtons" (click)="increaseLevel(false)">-</button>
+        <label class="curLevel">{{curLevel}}</label>
+        <button class="smallButtons" (click)="increaseLevel(true)">+</button>
+    </div>
+    <div class="presetsImgs">
+        <div>
+            <app-images-grid-display (onSelected)="onSelect($event)" [curImagesData]="gameImgs">
+            </app-images-grid-display>
         </div>
     </div>
 </div>

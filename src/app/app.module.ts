@@ -22,6 +22,7 @@ import { ResumeIntroComponent } from './components/resume-intro/resume-intro.com
 import { ListDisplayComponent } from './components/display/list-display/list-display.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FlipGameComponent } from './components/Project/flip-game/flip-game.component';
+import { ImagesGridDisplayComponent } from './components/display/images-grid-display/images-grid-display.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FlipGameComponent } from './components/Project/flip-game/flip-game.comp
     ResumeIntroComponent,
     ListDisplayComponent,
     ProjectsComponent,
-    FlipGameComponent
+    FlipGameComponent,
+    ImagesGridDisplayComponent
   ],
   imports: [
     BrowserModule,
