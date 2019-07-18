@@ -31,9 +31,14 @@ export class FlipGameComponent implements OnInit {
       id: 3
     }
   ];
-  //imgs to displa
+  //imgs to display
   loadedImgs: ImgDataModule[] = [];
+  //imgs in the grid
   gameImgs: ImgDataModule[] = [];
+  //indexs for the random generated imges
+  usedIndex: number[] = [];
+  //current game random generated images
+  curGameImgs: ImgDataModule[] = [];
 
   //Other imgs
   animals: ImgDataModule[] = [];
@@ -41,14 +46,21 @@ export class FlipGameComponent implements OnInit {
   monsters: ImgDataModule[] = [];
   usersImgs: ImgDataModule[] = [];
 
+  //selected indexes  
+  selectedImgs: number[] = [-1, -1];
+
   curLevel: number = 4;
   private maxLevel: number = 7;
   private imageWidth: number = 66;
 
+  private defaultcss: string = "fileSize";
   private defaultImg: string = "assets/img/back.png";
 
   startText: string = "Start Game!";
   displayText: string = " ";
+
+  private inGame: boolean = false;
+  wins: number = 0;
   constructor() { }
 
   ngOnInit() {
@@ -115,7 +127,6 @@ export class FlipGameComponent implements OnInit {
   addToUsers(data: any) {
     this.usersImgs.push({ css: "fileSize", src: data, id: 0 });
   }
-
   //Called to increase or decrease the difficulty
   increaseLevel(more: boolean) {
     if (more) {
@@ -130,7 +141,6 @@ export class FlipGameComponent implements OnInit {
   }
   //Create grid to display
   createGrid() {
-
     let totalWidth = (this.curLevel * this.imageWidth);
     document.documentElement.style.setProperty('--gridX', totalWidth.toString() + "px");
     document.documentElement.style.setProperty('--gridY', totalWidth.toString() + "px");
@@ -141,13 +151,142 @@ export class FlipGameComponent implements OnInit {
       this.gameImgs.push({ css: "fileSize", src: this.defaultImg, id: i });
     }
   }
-
+  //on selected an img in the grid display the img that was randomly generated
   onSelect(img: ImgDataModule) {
-    console.log("TODO on flip " + img.id);
-  }
+    if (this.inGame == false) {
+      this.showOutput("Start the game first..");
+      return;
+    }
+    const index = img.id;
+    //dont select the same img if already selected
+    if (index === this.selectedImgs[0] || index === this.selectedImgs[1]) {
+      return;
+    }
+    //its in an already compleded index
+    if (this.usedIndex.includes(index)) {
+      return;
+    }
+    //display generated imgs
+    img.css = this.curGameImgs[index].css;
+    img.src = this.curGameImgs[index].src;
 
+    //set the index that was click to the arrays
+    if (this.selectedImgs[0] == -1) {
+      this.selectedImgs[0] = index;
+    }
+    else if (this.selectedImgs[1] == -1) {
+      this.selectedImgs[1] = index;
+    }
+    if (this.selectedImgs[0] != -1 && this.selectedImgs[1] != -1) {
+      setTimeout(() => {
+        //Check if selected
+        if (this.curGameImgs[this.selectedImgs[0]] === this.curGameImgs[this.selectedImgs[1]]) {
+          //couple was completed
+          this.wins++;
+          //add to already finished
+          this.usedIndex.push(this.gameImgs[this.selectedImgs[0]].id);
+          this.usedIndex.push(this.gameImgs[this.selectedImgs[1]].id);
+          //when all couples was found
+          if (this.wins >= (this.curGameImgs.length / 2)) {
+            this.onWin();
+          }
+        }
+        else {
+          //Reset to default data
+          this.gameImgs[this.selectedImgs[0]].css = this.defaultcss;
+          this.gameImgs[this.selectedImgs[0]].src = this.defaultImg;
+          //Reset to default data
+          this.gameImgs[this.selectedImgs[1]].css = this.defaultcss;
+          this.gameImgs[this.selectedImgs[1]].src = this.defaultImg;
+        }
+        //Reset to non selected
+        this.selectedImgs[0] = -1;
+        this.selectedImgs[1] = -1;
+      }, 200);
+    }
+  }
+  //When finish the game
+  onWin() {
+    this.showOutput("Congratulations you won!!!");
+    this.startText = "New Game!";
+  }
+  //On Start Game 
   onStartPress() {
-    this.startText = "Reset!";
-    this.displayText = "Game Started!";
+
+    if (this.inGame) {
+      this.inGame = false;
+      this.resetGame();
+      return;
+    }
+    // this.displayText = "Game Started!";
+    this.showOutput("");
+    if (this.loadedImgs.length == 0) {
+
+      this.showOutput("Need to select items to use");
+      return;
+    }
+    this.startText = "Reset Game";
+
+    this.inGame = true;
+    this.showGameObjs(!this.inGame);
+    this.generateRandomImgs();
+    this.wins = 0;
+  }
+  //show all the game options again
+  resetGame() {
+    this.showGameObjs(!this.inGame);
+    this.startText = "Start Game!";
+    this.createGrid();
+  }
+  //Generate what images will be in the game
+  generateRandomImgs() {
+    let imgIndex = 0;
+    let curTotal = 0;
+    const total = this.gameImgs.length;
+    this.curGameImgs.length = total;
+    let added = 0;
+    let random = 0;
+    this.usedIndex.length = 0;
+    while (curTotal < total) {
+
+      added = 0;
+      random = 0;
+      while (added < 2) {
+        random = Math.floor(Math.random() * total);
+        if (this.usedIndex.includes(random) == false) {
+          this.usedIndex.push(random);
+          this.curGameImgs[random] = this.loadedImgs[imgIndex];
+          added++;
+          curTotal++;
+          if (added >= 2) {
+            break;
+          }
+        }
+        if (curTotal >= total) {
+          break;
+        }
+      }
+      imgIndex++;
+      if (imgIndex >= this.loadedImgs.length) {
+        imgIndex = 0;
+      }
+      if (curTotal >= total) {
+        break;
+      }
+    }
+    this.usedIndex.length = 0;
+  }
+  //Show instructions to the user
+  showOutput(text: string) {
+    this.displayText = text;
+  }
+  //Show or hide objects that has to do with the game
+  showGameObjs(show: boolean) {
+
+    if (show) {
+      document.documentElement.style.setProperty('--gameObjs', "block");
+    } else {
+      document.documentElement.style.setProperty('--gameObjs', "none");
+    }
   }
 }

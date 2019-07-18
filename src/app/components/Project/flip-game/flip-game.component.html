@@ -1,19 +1,19 @@
 <div class="flipBody">
     <hr>
     <div class="topFlip">
-        <div class="presetsImgs">
-            <div *ngFor="let arg of presetsSelect">
-                <button class="{{arg.css}}" (click)="onPreset(arg.id)">
+        <div class="presetsImgs ">
+            <div *ngFor="let arg of presetsSelect" class="gameObj">
+                <button class=" {{arg.css}}" (click)="onPreset(arg.id)">
                 </button>
             </div>
-            <div>
+            <div class="gameObj">
                 <p> Max : 10</p>
                 <br>
                 <input type="file" accept="image/*" name="image" id="fileSelector" multiple=true
                     (change)="onChange($event)">
             </div>
         </div>
-        <div class="inputArea">
+        <div class="inputArea gameObj">
             Difficulty :
             <button class="smallButtons" (click)="increaseLevel(false)">-</button>
             <label class="curLevel">{{curLevel}}</label>

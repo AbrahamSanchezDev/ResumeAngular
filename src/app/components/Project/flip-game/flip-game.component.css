@@ -1,3 +1,6 @@
+.gameObj{
+    display: var(--gameObjs);
+}
 .flipBody{
     text-align: center;
     align-content: center;
@@ -13,7 +16,6 @@
 .startBut{
     height: 40px;
     width: 150px;
-
     background-image: var(--introBg);
     opacity: .9;
     color: #ffffff;
