@@ -7,7 +7,7 @@ this  resume page was made by using angular to make it a single page application
  ng build --prod --base-href "https://holykiller.github.io/Resume/"
 
 
-##Angular :
+##Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
 
 ## Code scaffolding
