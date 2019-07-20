@@ -50,7 +50,7 @@ export class FlipGameComponent implements OnInit {
   selectedImgs: number[] = [-1, -1];
 
   curLevel: number = 4;
-  private maxLevel: number = 7;
+  private maxLevel: number = 10;
   private imageWidth: number = 66;
 
   private defaultcss: string = "fileSize";

@@ -5,38 +5,44 @@
 }
 .projects{
     height: 100%;
-    width: 98%;
-    background-color: bisque;
+    /* width: 95%; */
     justify-content:  space-between;
     margin-left: 10px;
+    margin-right: 10px;
 }
 .projectSelector{
-   float: left;
-    width: 10%;
-    height: 500px;
-    bottom: 500px;
-    padding-top: 20px;
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column; 
+    height: auto;  
     text-align: center;
     background-color: rgba(37, 37, 37, 0.76);
     border-radius: 30px;
 }
-.projectSelector button{
+.allProjects{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+ 
+}
+.allProjects button{
+
     background-image: var(--liBg);
-    opacity: .8;
-    color: #e2e2e2;
-    width: 95%;
-    height: 35px;
+     opacity: .9; 
+   width: 200px;
+    height: 30px;
+    color: #e2e2e2;    
     background-size: 100%;
     background-position: 50% 50%;
-    margin-top: 5px;
+    margin-top: 5px;    
 }
 .projectArea{
     background-color: #4e4e4e4b;
-    float: right;
-    width: 88%;
-    height: 700px;
+    width: 100%;
+    height: auto;
+    padding: 20px;
     left: 12%;    
+    margin-top: 5px;
     margin-right: 1%;   
     border-radius: 30px;
     border: 2px solid rgba(240, 240, 240, 0.534);
@@ -50,11 +56,9 @@
     background-color: #4e4e4e4b;
 }
 .des p{
-    position: relative;
-    float: left;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%; 
+    font-size: 1.5vh;
 }
 .project{
     top: 25%;

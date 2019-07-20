@@ -7,11 +7,12 @@
     <section>
         <div class="projects">
             <div class="projectSelector ">
-                <h3>Projects:</h3>
-                <div *ngFor="let arg of projects">
-                    <button (click)="onSelect(arg)">
-                        {{arg.title}}
-                    </button>
+                <div class="allProjects">
+                    <div *ngFor="let arg of projects">
+                        <button (click)="onSelect(arg)">
+                            {{arg.title}}
+                        </button>
+                    </div>
                 </div>
             </div>
 
