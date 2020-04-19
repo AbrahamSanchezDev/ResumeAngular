@@ -1,6 +1,10 @@
 //Build to dist
 ng build --prod --base-href "https://holykiller.github.io/Resume/"
+ng build --prod --base-href "https://holykiller.github.io/ResumeAngular/"
+
 //Deploy to the angular git and publish it to the same folder
+//Make sure to do the ng build first before doing the deploy
 npm run deploy
+
 //Start Server for testing
 ng serve -o
