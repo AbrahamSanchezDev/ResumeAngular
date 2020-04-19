@@ -10,7 +10,7 @@ import { ExpObjModule } from 'src/app/models/exp-obj/exp-obj.module';
   styleUrls: ['./experience-obj.component.css']
 })
 export class ExperienceObjComponent implements OnInit {
-  @ViewChild('multiText', { static: false }) multiLineText: MultiLineToJsonComponent;
+  @ViewChild('multiText') multiLineText: MultiLineToJsonComponent;
 
   expObj: ExpObjModule = new ExpObjModule();
   constructor(private downloadTool: DownloadToolService) { }

@@ -12,7 +12,7 @@ export class ImagesGridDisplayComponent implements OnInit {
 
   curImages: HTMLImageElement[] = [];
   defaultSrc: string = "";
-  @ViewChild("containerObj", { static: false }) container;
+  @ViewChild("containerObj") container;
 
   @Input() curImagesData: ImgDataModule[] = [
     {

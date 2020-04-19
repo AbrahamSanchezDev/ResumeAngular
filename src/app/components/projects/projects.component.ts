@@ -13,7 +13,7 @@ export class ProjectsComponent implements OnInit {
   projects: ProjectObjModule[];
   description: string;
   componentToLoad = TodosComponent;
-  @ViewChild('container', { static: false }) entry: ViewContainerRef;
+  @ViewChild('container') entry: ViewContainerRef;
   constructor(private projectsData: ProjectsDataService, private viewContainerRef: ViewContainerRef, private resolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
