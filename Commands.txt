@@ -1,0 +1,4 @@
+//Build to dist
+ng build --prod --base-href "https://holykiller.github.io/Resume/"
+//Deploy to the angular git and publish it
+npm run deploy
