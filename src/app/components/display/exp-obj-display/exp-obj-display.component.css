@@ -10,7 +10,7 @@
 }	
 .expObj:hover{
 	animation: scaleUp 0.5s; 
-    transform: scale(1.2);
+	transform: scale(1.2);
 }
 .expText{
 	animation: fadeInText 4s; 
