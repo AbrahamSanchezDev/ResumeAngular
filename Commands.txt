@@ -2,3 +2,5 @@
 ng build --prod --base-href "https://holykiller.github.io/Resume/"
 //Deploy to the angular git and publish it to the same folder
 npm run deploy
+//Start Server for testing
+ng serve -o
