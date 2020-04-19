@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://holykiller.github.io/Resume/",
+  "homepage": "https://holykiller.github.io/ResumeAngular/",
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.2",
