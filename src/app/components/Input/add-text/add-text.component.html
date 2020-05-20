@@ -1,4 +1,9 @@
 <form class="inputForm" (ngSubmit)="onSubmit()">
-    <input type="text" name="myText" [(ngModel)]="myText" placeholder="{{tempPlaceHolder}}">
-    <input type="submit" value="{{addText}}" class="btn">
+  <input
+    type="text"
+    name="myText"
+    [(ngModel)]="myText"
+    placeholder="{{ tempPlaceHolder }}"
+  />
+  <input type="submit" value="{{ addText }}" class="btn" />
 </form>
