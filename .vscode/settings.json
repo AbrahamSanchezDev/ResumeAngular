@@ -18,16 +18,16 @@
         "command": "ng build --prod --base-href https://holykiller.github.io/Resume/"
       },
       {
-        "name": "Buid Resume Angular",
-        "singleInstance": true,
-        "color": "#fff",
-        "command": "ng build --prod --base-href https://holykiller.github.io/ResumeAngular/"
-      },
-      {
         "name": "Deploy To Pages",
         "singleInstance": true,
         "color": "#fff",
         "command": "ngh"
+      },
+      {
+        "name": "Buid Resume Angular",
+        "singleInstance": true,
+        "color": "#fff",
+        "command": "ng build --prod --base-href https://holykiller.github.io/ResumeAngular/"
       }
     ]
   }
