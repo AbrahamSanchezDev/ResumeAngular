@@ -1,35 +1,34 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ImgDataModule } from 'src/app/models/ImgData/img-data.module';
-import { ImagesGridDisplayComponent } from '../../display/images-grid-display/images-grid-display.component';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { ImgDataModule } from "src/app/model/ImgData/img-data.module";
+import { ImagesGridDisplayComponent } from "../../display/images-grid-display/images-grid-display.component";
 
 @Component({
-  selector: 'app-flip-game',
-  templateUrl: './flip-game.component.html',
-  styleUrls: ['./flip-game.component.css']
+  selector: "app-flip-game",
+  templateUrl: "./flip-game.component.html",
+  styleUrls: ["./flip-game.component.css"],
 })
 export class FlipGameComponent implements OnInit {
-
   presetsSelect: ImgDataModule[] = [
     {
       css: "preset animal_0",
       src: "",
-      id: 0
+      id: 0,
     },
     {
       css: "preset food_0",
       src: "",
-      id: 1
+      id: 1,
     },
     {
       css: "preset monster_0",
       src: "",
-      id: 2
+      id: 2,
     },
     {
       css: "fileImg",
       src: "",
-      id: 3
-    }
+      id: 3,
+    },
   ];
   //imgs to display
   loadedImgs: ImgDataModule[] = [];
@@ -46,7 +45,7 @@ export class FlipGameComponent implements OnInit {
   monsters: ImgDataModule[] = [];
   usersImgs: ImgDataModule[] = [];
 
-  //selected indexes  
+  //selected indexes
   selectedImgs: number[] = [-1, -1];
 
   curLevel: number = 4;
@@ -61,15 +60,23 @@ export class FlipGameComponent implements OnInit {
 
   private inGame: boolean = false;
   wins: number = 0;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     //Load default images from the presets
     const maxImgs = 10;
     for (let i = 0; i < maxImgs; i++) {
-      this.animals.push({ css: "preset" + " " + "animal_" + i, src: "", id: i });
+      this.animals.push({
+        css: "preset" + " " + "animal_" + i,
+        src: "",
+        id: i,
+      });
       this.foods.push({ css: "preset" + " " + "food_" + i, src: "", id: i });
-      this.monsters.push({ css: "preset" + " " + "monster_" + i, src: "", id: i });
+      this.monsters.push({
+        css: "preset" + " " + "monster_" + i,
+        src: "",
+        id: i,
+      });
     }
     this.onPreset(0);
 
@@ -109,7 +116,6 @@ export class FlipGameComponent implements OnInit {
   }
   //On Selected imgs
   onChange(event: any) {
-
     this.usersImgs.length = 0;
     let totalImgs = event.target.files.length;
     if (totalImgs > 10) {
@@ -119,7 +125,6 @@ export class FlipGameComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = () => this.addToUsers(reader.result);
       reader.readAsDataURL(event.target.files[i]);
-
     }
     this.onPreset(3);
   }
@@ -130,20 +135,23 @@ export class FlipGameComponent implements OnInit {
   //Called to increase or decrease the difficulty
   increaseLevel(more: boolean) {
     if (more) {
-      if (this.curLevel < this.maxLevel)
-        this.curLevel++;
-    }
-    else {
-      if (this.curLevel > 2)
-        this.curLevel--;
+      if (this.curLevel < this.maxLevel) this.curLevel++;
+    } else {
+      if (this.curLevel > 2) this.curLevel--;
     }
     this.createGrid();
   }
   //Create grid to display
   createGrid() {
-    let totalWidth = (this.curLevel * this.imageWidth);
-    document.documentElement.style.setProperty('--gridX', totalWidth.toString() + "px");
-    document.documentElement.style.setProperty('--gridY', totalWidth.toString() + "px");
+    let totalWidth = this.curLevel * this.imageWidth;
+    document.documentElement.style.setProperty(
+      "--gridX",
+      totalWidth.toString() + "px"
+    );
+    document.documentElement.style.setProperty(
+      "--gridY",
+      totalWidth.toString() + "px"
+    );
     //Set the data to a clean version
     const total = this.curLevel * this.curLevel;
     this.gameImgs.length = 0;
@@ -173,25 +181,26 @@ export class FlipGameComponent implements OnInit {
     //set the index that was click to the arrays
     if (this.selectedImgs[0] == -1) {
       this.selectedImgs[0] = index;
-    }
-    else if (this.selectedImgs[1] == -1) {
+    } else if (this.selectedImgs[1] == -1) {
       this.selectedImgs[1] = index;
     }
     if (this.selectedImgs[0] != -1 && this.selectedImgs[1] != -1) {
       setTimeout(() => {
         //Check if selected
-        if (this.curGameImgs[this.selectedImgs[0]] === this.curGameImgs[this.selectedImgs[1]]) {
+        if (
+          this.curGameImgs[this.selectedImgs[0]] ===
+          this.curGameImgs[this.selectedImgs[1]]
+        ) {
           //couple was completed
           this.wins++;
           //add to already finished
           this.usedIndex.push(this.gameImgs[this.selectedImgs[0]].id);
           this.usedIndex.push(this.gameImgs[this.selectedImgs[1]].id);
           //when all couples was found
-          if (this.wins >= (this.curGameImgs.length / 2)) {
+          if (this.wins >= this.curGameImgs.length / 2) {
             this.onWin();
           }
-        }
-        else {
+        } else {
           //Reset to default data
           this.gameImgs[this.selectedImgs[0]].css = this.defaultcss;
           this.gameImgs[this.selectedImgs[0]].src = this.defaultImg;
@@ -210,9 +219,8 @@ export class FlipGameComponent implements OnInit {
     this.showOutput("Congratulations you won!!!");
     this.startText = "New Game!";
   }
-  //On Start Game 
+  //On Start Game
   onStartPress() {
-
     if (this.inGame) {
       this.inGame = false;
       this.resetGame();
@@ -221,7 +229,6 @@ export class FlipGameComponent implements OnInit {
     // this.displayText = "Game Started!";
     this.showOutput("");
     if (this.loadedImgs.length == 0) {
-
       this.showOutput("Need to select items to use");
       return;
     }
@@ -248,7 +255,6 @@ export class FlipGameComponent implements OnInit {
     let random = 0;
     this.usedIndex.length = 0;
     while (curTotal < total) {
-
       added = 0;
       random = 0;
       while (added < 2) {
@@ -282,11 +288,10 @@ export class FlipGameComponent implements OnInit {
   }
   //Show or hide objects that has to do with the game
   showGameObjs(show: boolean) {
-
     if (show) {
-      document.documentElement.style.setProperty('--gameObjs', "block");
+      document.documentElement.style.setProperty("--gameObjs", "block");
     } else {
-      document.documentElement.style.setProperty('--gameObjs', "none");
+      document.documentElement.style.setProperty("--gameObjs", "none");
     }
   }
 }

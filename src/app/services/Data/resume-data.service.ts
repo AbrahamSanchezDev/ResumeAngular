@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { JsonLoaderService } from "../json-loader.service";
-import { ExpObjModule } from "src/app/models/exp-obj/exp-obj.module";
-import { ListObjModule } from "src/app/models/list-obj/list-obj.module";
-import { ContactMediaModule } from "src/app/models/contact-media/contact-media.module";
+import { ExpObjModule } from "src/app/model/exp-obj/exp-obj.module";
+import { ListObjModule } from "src/app/model/list-obj/list-obj.module";
+import { ContactMediaModule } from "src/app/model/contact-media/contact-media.module";
 
 @Injectable({
   providedIn: "root",

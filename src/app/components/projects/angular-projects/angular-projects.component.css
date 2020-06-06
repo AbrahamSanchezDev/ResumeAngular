@@ -1,0 +1,12 @@
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  margin: 5px 5px;
+  justify-content: center;
+  min-height: 70vh;
+  border-radius: 10px;
+}
+.preview {
+  padding: 10px;
+}

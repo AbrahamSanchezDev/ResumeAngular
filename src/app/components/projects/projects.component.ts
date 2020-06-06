@@ -1,32 +1,34 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
-import { ProjectObjModule } from 'src/app/models/project-obj/project-obj.module';
-import { ProjectsDataService } from 'src/app/services/projects-data.service';
-import { TodosComponent } from '../todos/todos.component';
+import { Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
+import { ProjectsDataService } from "src/app/services/projects-data.service";
+import { ComponentDynamicDisplayComponent } from "../display/component-dynamic-display/component-dynamic-display.component";
+import { AngularProjectsComponent } from "./angular-projects/angular-projects.component";
+import { ProjectObjModule } from "src/app/model/project-obj/project-obj.module";
+import { AngularPracticesComponent } from "./angular-practices/angular-practices.component";
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  selector: "app-projects",
+  templateUrl: "./projects.component.html",
+  styleUrls: ["./projects.component.css"],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent extends ComponentDynamicDisplayComponent
+  implements OnInit {
+  componentToLoad = AngularProjectsComponent;
+  @ViewChild("container") entry: ViewContainerRef;
 
-  projects: ProjectObjModule[];
-  description: string;
-  componentToLoad = TodosComponent;
-  @ViewChild('container') entry: ViewContainerRef;
-  constructor(private projectsData: ProjectsDataService, private viewContainerRef: ViewContainerRef, private resolver: ComponentFactoryResolver) { }
+  projects: ProjectObjModule[] = [
+    {
+      title: "Angular Project",
+      component: AngularProjectsComponent,
+    },
+    {
+      title: "Angular Practices",
+      component: AngularPracticesComponent,
+    },
+  ];
 
-  ngOnInit() {
-    this.projects = this.projectsData.getProjects();
-    if (this.projects.length > 0) {
-      this.onSelect(this.projects[0]);
-    }
+  constructor(private projectsData: ProjectsDataService) {
+    super();
   }
-  public onSelect(project: ProjectObjModule) {
-
-    this.description = project.description;
-    this.componentToLoad = project.component;
-  }
-
-
+  //Get the projects
+  ngOnInit() {}
 }

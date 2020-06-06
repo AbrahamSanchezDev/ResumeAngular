@@ -1,9 +1,4 @@
 <div>
-  <div class="infoList projectsInfo">
-    <p>
-      Projects and Practices for web development
-    </p>
-  </div>
   <section>
     <div class="projects">
       <!-- Top Tabs -->
@@ -18,6 +13,9 @@
       </div>
       <!-- Display Current Project -->
       <div class="projectArea">
+        <div class="des">
+          <p [innerHtml]="description"></p>
+        </div>
         <ng-container *ngComponentOutlet="componentToLoad" class="project">
         </ng-container>
       </div>

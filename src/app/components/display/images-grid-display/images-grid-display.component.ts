@@ -1,11 +1,17 @@
-import { Component, OnInit, ViewChild, Input, EventEmitter, Output } from '@angular/core';
-import { ImgDataModule } from 'src/app/models/ImgData/img-data.module';
-
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  EventEmitter,
+  Output,
+} from "@angular/core";
+import { ImgDataModule } from "src/app/model/ImgData/img-data.module";
 
 @Component({
-  selector: 'app-images-grid-display',
-  templateUrl: './images-grid-display.component.html',
-  styleUrls: ['./images-grid-display.component.css']
+  selector: "app-images-grid-display",
+  templateUrl: "./images-grid-display.component.html",
+  styleUrls: ["./images-grid-display.component.css"],
 })
 export class ImagesGridDisplayComponent implements OnInit {
   @Output() onSelected: EventEmitter<any> = new EventEmitter();
@@ -18,25 +24,24 @@ export class ImagesGridDisplayComponent implements OnInit {
     {
       css: "preset animal_1",
       src: "",
-      id: 0
+      id: 0,
     },
     {
       css: "preset animal_3",
       src: "",
-      id: 1
-    }
+      id: 1,
+    },
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   //shows or hides all images on the grid
   ShowCurImages(show: boolean) {
     this.curImages.forEach((img) => {
       this.ShowComponent(img, show);
-    })
+    });
   }
 
   //Set the src of the object to default
@@ -47,8 +52,7 @@ export class ImagesGridDisplayComponent implements OnInit {
   ShowComponent(img: HTMLImageElement, show: boolean) {
     if (show) {
       img.style.display = "block";
-    }
-    else {
+    } else {
       img.style.display = "none";
     }
   }
