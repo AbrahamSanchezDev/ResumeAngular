@@ -1,20 +1,16 @@
-import { Injectable } from '@angular/core';
-import { JsonLoaderService } from '../json-loader.service';
-import { ExpObjModule } from 'src/app/models/exp-obj/exp-obj.module';
-import { ListObjModule } from 'src/app/models/list-obj/list-obj.module';
-import { ContactMediaModule } from 'src/app/models/contact-media/contact-media.module';
+import { Injectable } from "@angular/core";
+import { JsonLoaderService } from "../json-loader.service";
+import { ExpObjModule } from "src/app/models/exp-obj/exp-obj.module";
+import { ListObjModule } from "src/app/models/list-obj/list-obj.module";
+import { ContactMediaModule } from "src/app/models/contact-media/contact-media.module";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ResumeDataService {
   allExpObjs: ExpObjModule[] = [];
-  allExpNames: string[] = [
-    "expObj_1.json",
-    "expObj_2.json",
-    "expObj_3.json"
-  ];
-  constructor(private jsonLoader: JsonLoaderService) { }
+  allExpNames: string[] = ["expObj_1.json", "expObj_2.json", "expObj_3.json"];
+  constructor(private jsonLoader: JsonLoaderService) {}
   //Skills by list of objs
   skills: ListObjModule[] = [
     {
@@ -24,8 +20,8 @@ export class ResumeDataService {
         "Unity 3d",
         "Steam SDK  <br> (Steam Workshop , etc)",
         "Game Development in general",
-        "Basics knowledge in some <br> productions pipelines for game development"
-      ]
+        "Basics knowledge in some <br> productions pipelines for game development",
+      ],
     },
     {
       title: "Programing in unity:",
@@ -34,8 +30,8 @@ export class ResumeDataService {
         "Mechanic Systems",
         "Modding Support",
         "Multi Language Support",
-        "Flexible Ui build at runtime<br>(working on ui mod support)"
-      ]
+        "Flexible Ui build at runtime<br>(working on ui mod support)",
+      ],
     },
     {
       title: "Unity Editor Tools for:",
@@ -48,62 +44,62 @@ export class ResumeDataService {
         "Json creation and editing",
         "Automatization tools for level design",
         "Random generated buildings",
-        "Modding support Tools"
-      ]
+        "Modding support Tools",
+      ],
     },
     {
       title: "Game Development Pipelines:",
       list: [
         "3d modeling <br> (Blender, Maya, Zbrush)",
         "Texturing <br> (Substance painter , Photoshop, Gimp)",
-        "Rigging and Animation<br>(Blender)"
-      ]
-    }
+        "Rigging and Animation<br>(Blender)",
+      ],
+    },
   ];
   //Data for the media images with links
   contactMedia: ContactMediaModule[] = [
     {
       link: "https://www.linkedin.com/in/abraham-sanchez-374236102/",
       src: "assets/img/linkedin.png",
-      altText: "LinkedIn"
+      altText: "LinkedIn",
     },
     {
       link: "https://connect.unity.com/u/abraham-sanchez",
       src: "assets/img/unity.jpg",
-      altText: "Unity"
+      altText: "Unity",
     },
     {
       link: "https://www.indiedb.com/games/mobsworlds",
       src: "https://media.indiedb.com/images/global/indiedb.png",
-      altText: "IndieDb"
+      altText: "IndieDb",
     },
     {
       link: "https://www.facebook.com/MobsWorlds/",
       src: "assets/img/facebook.png",
-      altText: "Facebook"
+      altText: "Facebook",
     },
     {
       link: "https://twitter.com/WorldsDev",
       src: "assets/img/twitter.png",
-      altText: "Twitter"
+      altText: "Twitter",
     },
     {
       link: "https://store.steampowered.com/app/826930/The_Capture_Worlds/",
       src: "assets/img/steam.png",
-      altText: "Steam"
+      altText: "Steam",
     },
     {
       link: "https://www.youtube.com/channel/UCCS0uX_JDG_3OBPt2jYQsfw",
       src: "assets/img/youtube.png",
-      altText: "YouTube"
-    }
+      altText: "YouTube",
+    },
   ];
 
   summeryAndEducation: string[] = [
-    "I been learning and working on Unity3d for more than 6 years focusing in programming(c#) for pc games.I been a self-taught person more than 11 years.",
+    "I been learning and working on Unity3d for more than 7 years focusing in programming(c#) for pc games.I been a self-taught person more than 12 years.",
     "-",
     "Right now I'm studying on a government open education system so i can get my Bachelor's Degree , learning Unreal 4 Engine, c++, python and asp.net mvc ,while working in my video game The Capture Worlds.",
-    "I also have been learning Japanese in my free time because i would love to visit Japan in the future , i realy like the culture ,its morals and all it has to offer."
+    "I also have been learning Japanese in my free time because i would love to visit Japan in the future , i realy like the culture ,its morals and all it has to offer.",
   ];
   //Get the Skills
   getSkills(): ListObjModule[] {
@@ -112,7 +108,7 @@ export class ResumeDataService {
   //Get Experience
   getExperience() {
     if (this.allExpObjs != null && this.allExpObjs.length > 0) {
-      return
+      return;
     }
     for (let i = 0; i < this.allExpNames.length; i++) {
       this.getExpObjWithName(this.allExpNames[i]);
@@ -120,7 +116,7 @@ export class ResumeDataService {
   }
   //Get the data from the json loader
   private getExpObjWithName(expName: string) {
-    this.jsonLoader.getExpObjs(expName).subscribe(data => {
+    this.jsonLoader.getExpObjs(expName).subscribe((data) => {
       this.allExpObjs.push(data);
     });
   }
