@@ -59,6 +59,11 @@ export class ResumeDataService {
   //Data for the media images with links
   contactMedia: ContactMediaModule[] = [
     {
+      link: "https://github.com/holykiller",
+      src: "assets/svg/github.svg",
+      altText: "Github",
+    },
+    {
       link: "https://www.linkedin.com/in/abraham-sanchez-374236102/",
       src: "assets/img/linkedin.png",
       altText: "LinkedIn",
