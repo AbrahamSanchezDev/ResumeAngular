@@ -21,11 +21,14 @@ export class ResumeDataService {
     {
       title: "General:",
       list: [
-        "C#,HTML,CSS,JavaScript",
+        "C#",
         "Unity 3d",
         "Steam SDK  <br> (Steam Workshop , etc)",
         "Game Development in general",
         "Basics knowledge in some <br> productions pipelines for game development",
+        "HTML,CSS,JavaScript <br> Angular",
+        "Learning: Web Front Development",
+        "Learning next : React",
       ],
     },
     {
@@ -105,12 +108,17 @@ export class ResumeDataService {
     },
   ];
 
-  summeryAndEducation: string[] = [
-    "I been learning and working on Unity3d for more than 7 years focusing in programming(c#) for pc games.I been a self-taught person more than 12 years.",
-    "-",
-    "Right now I'm studying on a government open education system so i can get my Bachelor's Degree , learning Unreal 4 Engine, c++, python and asp.net mvc ,while working in my video game The Capture Worlds.",
-    "I also have been learning Japanese in my free time because i would love to visit Japan in the future , i realy like the culture ,its morals and all it has to offer.",
-  ];
+  curYear = new Date().getFullYear();
+  startedYear = 2008;
+  startedUnity = 2013;
+  currentAmountOfYears: number = this.curYear - this.startedYear;
+  yearsOfBeenUnityDev: number = this.curYear - this.startedUnity;
+  endText: string = `
+    I been learning and working on Unity3d for more than ${this.yearsOfBeenUnityDev} years focusing in programming(c#) for pc games.I been a self-taught person more than ${this.currentAmountOfYears} years.
+    -
+    Right now I'm studying on a government open education system so i can get my Bachelor's Degree , learning Unreal 4 Engine, c++, python and asp.net mvc ,while working in my video game The Capture Worlds.
+    I also have been learning Japanese in my free time because i would love to visit Japan in the future , i realy like the culture ,its morals and all it has to offer.
+    `;
   //Get the Skills
   getSkills(): ListObjModule[] {
     return this.skills;
@@ -134,8 +142,8 @@ export class ResumeDataService {
   getMediaData(): ContactMediaModule[] {
     return this.contactMedia;
   }
-  //get education and summery text from local data
-  getSummeryAndEducationText(): string[] {
-    return this.summeryAndEducation;
+  //Returns the ending text
+  getEndText(): string {
+    return this.endText;
   }
 }

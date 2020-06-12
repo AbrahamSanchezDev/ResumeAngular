@@ -1,21 +1,25 @@
-.mainBg{
-    border-radius: 15px;
-	margin: 1px 35px;
-}	
-.skillsMain{	
-	padding-left: 20px;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	justify-content: space-around;
-	animation: fadeIn 1s; 
+.mainBg {
+  border-radius: 15px;
+  margin: 1px 35px;
+}
+.skillsMain {
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+  animation: fadeIn 1s;
 }
 .summery {
-	margin-top: 10px;
-	border-radius: 5px;
-	text-align: center;
-	font-size: 16px;
-	font-family: serif;
-	min-height: 100px;
-	padding-top: 5px;
-}	
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  font-family: serif;
+  min-height: 100px;
+  padding-top: 5px;
+}
+
+.multi-line-display {
+  white-space: pre-wrap;
+}

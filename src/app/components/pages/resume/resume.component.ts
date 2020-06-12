@@ -9,12 +9,12 @@ import { ResumeDataService } from "src/app/services/Data/resume-data.service";
 })
 export class ResumeComponent implements OnInit {
   expObjs: ExpObjModule[];
-  summeryAndEducation: string[];
+  endText: string;
   constructor(private resumeData: ResumeDataService) {}
 
   ngOnInit() {
     this.resumeData.getExperience();
     this.expObjs = this.resumeData.allExpObjs;
-    this.summeryAndEducation = this.resumeData.getSummeryAndEducationText();
+    this.endText = this.resumeData.getEndText();
   }
 }

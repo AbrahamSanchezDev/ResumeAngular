@@ -10,8 +10,8 @@
     linear-gradient(to top, rgba(43, 43, 43, 0.4) 0%, rgba(0, 0, 0, 0.25) 200%);
 
   --liBg: linear-gradient(rgb(90, 90, 90) 0%, rgb(39, 39, 39) 100%);
-  --mainBg: linear-gradient(#fff, #fff);
 
+  --mainBg: linear-gradient(#fff, #fff);
   --selected: linear-gradient(#fff, #fff);
   --projectsBg: linear-gradient(#fff, #fff);
 
