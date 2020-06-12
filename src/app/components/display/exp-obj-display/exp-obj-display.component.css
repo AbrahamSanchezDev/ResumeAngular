@@ -2,11 +2,15 @@
   color: rgb(235, 235, 235);
   font-size: 15px;
   padding-top: 5px;
-  text-align: center;
+  text-align: left;
   margin: 3px 5px;
   background-color: #648ecc38;
   border: 1px white solid;
   border-radius: 15px;
+  padding-bottom: 10px;
+}
+.expObj h2 {
+  text-align: center;
 }
 .expObj:hover {
   animation: scaleUp 0.5s;

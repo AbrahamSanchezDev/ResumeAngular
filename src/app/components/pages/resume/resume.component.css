@@ -13,11 +13,14 @@
 .summery {
   margin-top: 10px;
   border-radius: 5px;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   font-family: serif;
   min-height: 100px;
   padding-top: 5px;
+}
+.summery h3 {
+  text-align: center;
 }
 
 .multi-line-display {

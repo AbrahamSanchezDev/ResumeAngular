@@ -26,9 +26,7 @@ export class ResumeDataService {
         "Steam SDK  <br> (Steam Workshop , etc)",
         "Game Development in general",
         "Basics knowledge in some <br> productions pipelines for game development",
-        "HTML,CSS,JavaScript <br> Angular",
-        "Learning: Web Front Development",
-        "Learning next : React",
+        "HTML,CSS,JavaScript <br> Angular / Angular Jasmine(Auto Testing) ",
       ],
     },
     {
@@ -114,11 +112,10 @@ export class ResumeDataService {
   currentAmountOfYears: number = this.curYear - this.startedYear;
   yearsOfBeenUnityDev: number = this.curYear - this.startedUnity;
   endText: string = `
-    I been learning and working on Unity3d for more than ${this.yearsOfBeenUnityDev} years focusing in programming(c#) for pc games.I been a self-taught person more than ${this.currentAmountOfYears} years.
-    -
-    Right now I'm studying on a government open education system so i can get my Bachelor's Degree , learning Unreal 4 Engine, c++, python and asp.net mvc ,while working in my video game The Capture Worlds.
-    I also have been learning Japanese in my free time because i would love to visit Japan in the future , i realy like the culture ,its morals and all it has to offer.
-    `;
+    I been learning and working on Unity3d for more than ${this.yearsOfBeenUnityDev} years focusing in programming(c#) for pc games.And now I'm learing Web Development. I been a self-taught person more than ${this.currentAmountOfYears} years.
+
+    Right now I'm studying on a government open education system so i can get my Bachelor's Degree ,while also learning Web development and I plan to learn : React(front end) Unreal 4 Engine, c++,Python and ASP.net MVC.
+    I also have been learning Japanese in my free time because i would love to visit and if posible live Japan in the future , i really like the culture ,its morals and all it has to offer.`;
   //Get the Skills
   getSkills(): ListObjModule[] {
     return this.skills;
