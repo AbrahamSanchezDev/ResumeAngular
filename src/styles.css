@@ -1,11 +1,19 @@
 :root {
   --bodyBg: url("assets/img/header-bg.jpg");
   --introBg: url("assets/img/bg_3.jpg");
-  --liBg: url("assets/img/button_3.png");
-  --mainBg: url("assets/img/bg_7.png");
-  --infoListBg: url("assets/img/pattern.png");
-  --selected: url("assets/img/button_5.png");
-  --projectsBg: url("assets/img/bg_7_3.png");
+  --infoListBg: linear-gradient(
+      to bottom,
+      #323232 0%,
+      #3f3f3f 40%,
+      #1c1c1c 150%
+    ),
+    linear-gradient(to top, rgba(43, 43, 43, 0.4) 0%, rgba(0, 0, 0, 0.25) 200%);
+
+  --liBg: linear-gradient(rgb(90, 90, 90) 0%, rgb(39, 39, 39) 100%);
+  --mainBg: linear-gradient(#fff, #fff);
+
+  --selected: linear-gradient(#fff, #fff);
+  --projectsBg: linear-gradient(#fff, #fff);
 
   --spriteSheet: url("assets/img/presets/spritesheet.png");
   --defaultImg: url("assets/img/back.png");

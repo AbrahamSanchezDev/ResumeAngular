@@ -10,6 +10,11 @@ import { ContactMediaModule } from "src/app/model/contact-media/contact-media.mo
 export class ResumeDataService {
   allExpObjs: ExpObjModule[] = [];
   allExpNames: string[] = ["expObj_1.json", "expObj_2.json", "expObj_3.json"];
+  info: string[] = [
+    "Email: abraham_gto@hotmail.com",
+    "Skype: lholykillerl",
+    "I'm willing to relocate.",
+  ];
   constructor(private jsonLoader: JsonLoaderService) {}
   //Skills by list of objs
   skills: ListObjModule[] = [

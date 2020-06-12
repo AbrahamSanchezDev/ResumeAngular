@@ -9,8 +9,10 @@ import { ResumeDataService } from "src/app/services/Data/resume-data.service";
 })
 export class ResumeIntroComponent implements OnInit {
   contactMedia: ContactMediaModule[];
-
-  constructor(private resumeData: ResumeDataService) {}
+  info: string[];
+  constructor(private resumeData: ResumeDataService) {
+    this.info = resumeData.info;
+  }
 
   ngOnInit() {
     this.contactMedia = this.resumeData.getMediaData();

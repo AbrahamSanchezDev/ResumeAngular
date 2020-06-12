@@ -1,10 +1,6 @@
 <div class="infoList">
-  <ul>
-    <li>Email: abraham_gto@hotmail.com</li>
-    <li>Skype: lholykillerl</li>
-    <li>
-      I'm willing to relocate.
-    </li>
+  <ul *ngFor="let data of info">
+    <li>{{ data }}</li>
   </ul>
 </div>
 <div class="media">
