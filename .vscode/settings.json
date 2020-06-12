@@ -30,6 +30,12 @@
         "command": "ng build --prod --base-href https://holykiller.github.io/ResumeAngular/"
       },
       {
+        "name": "Start Testing",
+        "singleInstance": true,
+        "color": "#fff",
+        "command": "ng test"
+      },
+      {
         "name": "Update Angular and Angular Cli",
         "singleInstance": true,
         "color": "#fff",
