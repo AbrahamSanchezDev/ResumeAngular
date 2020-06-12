@@ -10,7 +10,7 @@ import { TodosComponent } from "./components/todos/todos.component";
 import { TodoItemComponent } from "./components/todos/todo-item/todo-item.component";
 import { HeaderComponent } from "./components/layout/header/header.component";
 import { AddTodoComponent } from "./components/add-todo/add-todo.component";
-import { ResumeComponent } from "./components/resume/resume.component";
+import { ResumeComponent } from "./components/pages/resume/resume.component";
 import { NavControlComponent } from "./components/nav-control/nav-control.component";
 import { InputAreaComponent } from "./components/input-area/input-area.component";
 import { TextToJsonComponent } from "./components/text-to-json/text-to-json.component";

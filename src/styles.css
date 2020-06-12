@@ -1,361 +1,361 @@
-:root{
-	--bodyBg : url("assets/img/header-bg.jpg");
-	--introBg : url('assets/img/bg_3.jpg');
-	--liBg : url('assets/img/button_3.png');
-	--mainBg : url('assets/img/bg_7.png');
-	--infoListBg : url('assets/img/pattern.png');
-	--selected : url('assets/img/button_5.png');
-    --projectsBg : url('assets/img/bg_7_3.png');
+:root {
+  --bodyBg: url("assets/img/header-bg.jpg");
+  --introBg: url("assets/img/bg_3.jpg");
+  --liBg: url("assets/img/button_3.png");
+  --mainBg: url("assets/img/bg_7.png");
+  --infoListBg: url("assets/img/pattern.png");
+  --selected: url("assets/img/button_5.png");
+  --projectsBg: url("assets/img/bg_7_3.png");
 
-    --spriteSheet : url('assets/img/presets/spritesheet.png');
-    --defaultImg : url('assets/img/back.png');
-    --fileImg : url('assets/img/fileIcon.png');    
+  --spriteSheet: url("assets/img/presets/spritesheet.png");
+  --defaultImg: url("assets/img/back.png");
+  --fileImg: url("assets/img/fileIcon.png");
 
-    --gridX : 150px;
-    --gridY: 200px;
-    --sizeX : 64px;
-    --sizeY : 64px;
+  --gridX: 150px;
+  --gridY: 200px;
+  --sizeX: 64px;
+  --sizeY: 64px;
 
-    --gameObjs : block; 
+  --gameObjs: block;
 }
 /* You can add global styles to this file, and also import other style files */
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body{
-    background-image: var(--bodyBg);
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.4;
-    color: rgb(235, 235, 235);
-	font-size: 14px;
+body {
+  background-image: var(--bodyBg);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  color: rgb(235, 235, 235);
+  font-size: 14px;
 }
-a{
-    color: #333;
-    text-decoration: none;
+a {
+  color: #333;
+  text-decoration: none;
 }
-.container{
-    padding: 0 1rem;
+.container {
+  padding: 0 1rem;
 }
-.btn{
-    display: inline-block;
-    border: none;
-    background-color: #555;
-    padding: 7px 20px;
-    cursor: pointer;
+.btn {
+  display: inline-block;
+  border: none;
+  background-color: #555;
+  padding: 7px 20px;
+  cursor: pointer;
 }
-.btn:hover{
-    background: #666;
+.btn:hover {
+  background: #666;
 }
 .intro {
-	background-image: var(--introBg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-origin: content-box;
-	min-height: 50px;
-	line-height: 1.7em;
-	text-align: center;
-	font-family: cursive;
-	font-size: 100%;
-	text-decoration: orange;
-    color: white;
-    padding: 5px 0px ;
+  background-image: var(--introBg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-origin: content-box;
+  min-height: 50px;
+  line-height: 1.7em;
+  text-align: center;
+  font-family: cursive;
+  font-size: 100%;
+  text-decoration: orange;
+  color: white;
+  padding: 5px 0px;
 }
-.intro h1{
-    padding-bottom: 5px;
+.intro h1 {
+  padding-bottom: 5px;
 }
 .infoList {
-	border: 1px white solid;
-	border-radius: 15px;
-	color: #f6efe8;
-	margin: 5px 10%;
-    background-image: var(--infoListBg);
-    padding: 10px 0px;
+  border: 1px white solid;
+  border-radius: 15px;
+  color: #f6efe8;
+  margin: 5px 10%;
+  background-image: var(--infoListBg);
+  padding: 10px 0px;
 }
-.blackBg{
-    background-image: var(--infoListBg);
-    color: #f6efe8;
-    border-radius: 15px;
-    border: 1px white solid;
-}	  
+.blackBg {
+  background-image: var(--infoListBg);
+  color: #f6efe8;
+  border-radius: 15px;
+  border: 1px white solid;
+}
 .infoList ul {
-    text-align: center;
-    list-style: none;
+  text-align: center;
+  list-style: none;
 }
 .media {
-    text-align: center;
-}	  
+  text-align: center;
+}
 .media img {
-    width: 27px;
-    height: 27px;
-}	
+  width: 27px;
+  height: 27px;
+}
 .titleName {
-	padding-top: 15px;
-}	 
-.deleteBut{
-    background: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 3px 7px;    
-    border-radius: 50%;
-    cursor: pointer;
-    float: right;
+  padding-top: 15px;
 }
-.inpuTextObj{  
-    display: inline;
+.deleteBut {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 3px 7px;
+  border-radius: 50%;
+  cursor: pointer;
+  float: right;
 }
-.singleLine{
-    display: inline;
-    text-decoration: none;
+.inpuTextObj {
+  display: inline;
 }
-.textToAdd{
-    background: rgb(77, 77, 77);
-    padding: 5px;
-    border-bottom: 1px #ccc dotted;
+.singleLine {
+  display: inline;
+  text-decoration: none;
 }
-.inputForm{
-    display: flex;
+.textToAdd {
+  background: rgb(77, 77, 77);
+  padding: 5px;
+  border-bottom: 1px #ccc dotted;
 }
-.inputForm input[type='text']{
-    flex: 10;
-    padding: 5px;
+.inputForm {
+  display: flex;
 }
-.inputForm input[type='submit']{
-    flex: 2;
-    color:#f4f4f4;
+.inputForm input[type="text"] {
+  flex: 10;
+  padding: 5px;
 }
-.smallHeader{
-    background: rgb(12, 71, 148);
-    color: #f4f4f4;
-    text-align: center;
-    border-radius: 30px;
-     margin: 5px 10%;
+.inputForm input[type="submit"] {
+  flex: 2;
+  color: #f4f4f4;
 }
-.smallHeader a{
-    color: #fff;
-    text-decoration: none;
+.smallHeader {
+  background: rgb(12, 71, 148);
+  color: #f4f4f4;
+  text-align: center;
+  border-radius: 30px;
+  margin: 5px 10%;
 }
-.expInputArea{
-    height: 150px;
-    width: 98%;
-    resize: none;
+.smallHeader a {
+  color: #fff;
+  text-decoration: none;
+}
+.expInputArea {
+  height: 150px;
+  width: 98%;
+  resize: none;
 }
 .expArea {
-	border-radius: 5px;
-	text-align: left;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}		 
-@keyframes fadeIn{
-	from{
-		opacity: 0;
-		width: 25%;
-	}
-	to{
- 		opacity: 1; 
-		width: 100%;
-	}
+  border-radius: 5px;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-@keyframes scaleUp{
-	from{
-		transform: scale(1);
-	}
-	to{
-        transform: scale(1.2);
-	}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    width: 25%;
+  }
+  to {
+    opacity: 1;
+    width: 100%;
+  }
 }
-@keyframes fadeInText{
-	from{
-		opacity: 0.1;
-	}
-	to{
- 		opacity: 1; 
-	}
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
 }
-.h2Header{
-    padding-top: 10px;
-    text-align: center;
-	color: beige;
-	font-size: 13px;
-} 
-.hrDotted{
-	border: 1px dotted rgba(175, 175, 175, 0.534);
+@keyframes fadeInText {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.h2Header {
+  padding-top: 10px;
+  text-align: center;
+  color: beige;
+  font-size: 13px;
+}
+.hrDotted {
+  border: 1px dotted rgba(175, 175, 175, 0.534);
 }
 .bg-1 {
-	background-color: #347dec36;
-	border-radius: 40px;
-}	
-.toCenter{
-    text-align: center;
-    justify-content: center;
-   margin: auto;
+  background-color: #347dec36;
+  border-radius: 40px;
+}
+.toCenter {
+  text-align: center;
+  justify-content: center;
+  margin: auto;
 }
 
 .preset {
-    background-image: var(--spriteSheet);
-    background-repeat: no-repeat;
-    display: block;
-    background-color: transparent;
-    border: none;
+  background-image: var(--spriteSheet);
+  background-repeat: no-repeat;
+  display: block;
+  background-color: transparent;
+  border: none;
 }
-.fileSize{
-    width: 64px;
-    height: 64px;
+.fileSize {
+  width: 64px;
+  height: 64px;
 }
 .animal_0 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -5px -5px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -5px -5px;
 }
-.midScale{
-    transform: scale(.6);
+.midScale {
+  transform: scale(0.6);
 }
 .animal_1 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -79px -5px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -79px -5px;
 }
 .animal_2 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -153px -5px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -153px -5px;
 }
 .animal_3 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -227px -5px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -227px -5px;
 }
 .animal_4 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -301px -5px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -301px -5px;
 }
 .animal_5 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -5px -79px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -5px -79px;
 }
 .animal_6 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -79px -79px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -79px -79px;
 }
 .animal_7 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -153px -79px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -153px -79px;
 }
 .animal_8 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -227px -79px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -227px -79px;
 }
 .animal_9 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -301px -79px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -301px -79px;
 }
 
 .food_0 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -5px -153px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -5px -153px;
 }
 .food_1 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -79px -153px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -79px -153px;
 }
 .food_2 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -153px -153px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -153px -153px;
 }
 .food_3 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -227px -153px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -227px -153px;
 }
 .food_4 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -301px -153px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -301px -153px;
 }
 .food_5 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -5px -227px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -5px -227px;
 }
 .food_6 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -79px -227px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -79px -227px;
 }
 .food_7 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -153px -227px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -153px -227px;
 }
 .food_8 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -227px -227px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -227px -227px;
 }
 .food_9 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -301px -227px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -301px -227px;
 }
 .monster_0 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -5px -301px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -5px -301px;
 }
 .monster_1 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -79px -301px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -79px -301px;
 }
 .monster_2 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -153px -301px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -153px -301px;
 }
 .monster_3 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -227px -301px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -227px -301px;
 }
 .monster_4 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -301px -301px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -301px -301px;
 }
 .monster_5 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -375px -5px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -375px -5px;
 }
 .monster_6 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -375px -79px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -375px -79px;
 }
 .monster_7 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -375px -153px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -375px -153px;
 }
 .monster_8 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -375px -227px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -375px -227px;
 }
 .monster_9 {
-    width: var(--sizeX);
-    height: var(--sizeY);
-    background-position: -375px -301px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  background-position: -375px -301px;
 }

@@ -15,6 +15,8 @@ export class ProjectsComponent extends ComponentDynamicDisplayComponent
   componentToLoad = AngularProjectsComponent;
   @ViewChild("container") entry: ViewContainerRef;
 
+  title: string = "Projects and Practices for web development";
+
   projects: ProjectObjModule[] = [
     {
       title: "Angular Project",
