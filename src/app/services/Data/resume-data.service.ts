@@ -112,7 +112,7 @@ export class ResumeDataService {
   currentAmountOfYears: number = this.curYear - this.startedYear;
   yearsOfBeenUnityDev: number = this.curYear - this.startedUnity;
   endText: string = `
-    I been learning and working on Unity3d for more than ${this.yearsOfBeenUnityDev} years focusing in programming(c#) for pc games.And now I'm learing Web Development. I been a self-taught person more than ${this.currentAmountOfYears} years.
+    I been learning and working on Unity3d for more than ${this.yearsOfBeenUnityDev} years, focusing in programming(c#) for pc games.And now I'm learing Web Development. I been a self-taught person more than ${this.currentAmountOfYears} years.
 
     Right now I'm studying on a government open education system so i can get my Bachelor's Degree ,while also learning Web development and I plan to learn : React(front end) Unreal 4 Engine, c++,Python and ASP.net MVC.
     I also have been learning Japanese in my free time because i would love to visit and if posible live Japan in the future , i really like the culture ,its morals and all it has to offer.`;
