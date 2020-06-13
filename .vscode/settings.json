@@ -18,6 +18,19 @@
         "command": "ng build --prod --base-href https://holykiller.github.io/Resume/"
       },
       {
+        "name": "Buid Div 2",
+        "singleInstance": true,
+        "color": "#fff",
+        "command": "ng build --prod --output-path=E:/HTML/Resume --base-href https://holykiller.github.io/Resume/"
+      },
+
+      {
+        "name": "Custom Diploy 2",
+        "singleInstance": true,
+        "color": "#fff",
+        "command": "ng deploy --repo https://github.com/holykiller/Resume.git --base-href https://holykiller.github.io/Resume/"
+      },
+      {
         "name": "Deploy To Pages",
         "singleInstance": true,
         "color": "#fff",
