@@ -1,24 +1,56 @@
-.del{
-    background: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 5px 9px;
-    border-radius: 50%;
-    cursor: pointer;
-    float: right;
+.del {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 5px 9px;
+  border-radius: 50%;
+  cursor: pointer;
+  /* float: right; */
+  /* position: absolute;
+  right: 0; */
 }
-.todo{
-    background: #5c5c5c;
-    padding: 10px;
-    border-bottom: 1px #ccc dotted;
+.isComplete {
+  text-decoration: line-through;
 }
-.isComplete{
-    text-decoration: line-through;
+.is-Notcomplete {
+  text-decoration: none;
 }
-.theTittle{
-    display: inline;
-    text-decoration: none;
+
+.edit {
+  border: none;
+  padding: 5px 9px;
+  cursor: pointer;
+  float: right;
+  border-radius: 10px;
+  user-select: none;
 }
-.is-Notcomplete{
-    text-decoration: none;
+
+.main-todo:hover .edit {
+  background-color: rgb(0, 17, 255);
+}
+.todo {
+  background: #5c5c5c;
+  padding: 10px;
+  border-bottom: 1px #ccc dotted;
+}
+.main-todo {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  padding-left: 10px;
+  display: flex;
+}
+
+.theTittle {
+  text-decoration: none;
+  width: 100%;
+}
+.input-todo {
+  /* flex-basis: 1 1 auto; */
+  width: 100%;
+}
+.move-array {
+  transform: rotate(90deg);
+  width: 20px;
 }

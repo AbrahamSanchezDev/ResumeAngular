@@ -1,5 +1,29 @@
 <div [ngClass]="setClasses()">
-    <input (change)="onToggle(todo)" type="checkbox" />
-    <p class="theTittle">{{ todo.title }}</p>
+  <div class="main-todo" (click)="onSelect()">
+    <input
+      (change)="onToggle(todo)"
+      type="checkbox"
+      (click)="cancelClick()"
+      class="toggle-todo"
+    />
+
+    <p class="theTittle" *ngIf="!editMode; else elseBlock" (click)="onSelect()">
+      {{ todo.title }}
+    </p>
+    <ng-template #elseBlock>
+      <input
+        type="text"
+        [ngModel]="todo.title"
+        #inputObj
+        (keydown.enter)="toggleEdit()"
+        class="input-todo"
+      />
+    </ng-template>
+    <div>
+      <button (click)="move(1)" class="move-array"><</button>
+      <button (click)="move(-1)" class="move-array">></button>
+    </div>
+    <button (click)="toggleEdit()" class="edit">...</button>
     <button (click)="onDelete(todo)" class="del">x</button>
+  </div>
 </div>
