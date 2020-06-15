@@ -11,9 +11,8 @@ export class Todo {
   public SetEdit(edit: boolean): void {
     this.editMode = edit;
   }
-
-  constructor(theId: number, title: string, completed: boolean) {
-    this.id = theId;
+  constructor(id: number, title: string, completed: boolean) {
+    this.id = id;
     this.title = title;
     this.completed = completed;
   }

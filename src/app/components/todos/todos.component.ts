@@ -27,7 +27,7 @@ export class TodosComponent implements OnInit {
     this.addOptionToMenu("Delete", (todo) => this.deleteTodo(todo));
   }
   //Add an option to the menu must pass callback like this:  (todo) => this.deleteTodo(todo)
-  addOptionToMenu(displayText: string, callback: Function) {
+  addOptionToMenu(displayText: string, callback: Function): void {
     this.menu.data.push({
       text: displayText,
       callback: (todo) => callback(todo),
@@ -37,22 +37,22 @@ export class TodosComponent implements OnInit {
     this.todos = this.todoService.getTodos();
   }
   //Delete the given object
-  deleteTodo(todo: Todo) {
+  deleteTodo(todo: Todo): void {
     this.todos = this.todos.filter((t) => t !== todo);
   }
   //Move the given object up
-  moveTodoUp(todo: Todo) {
+  moveTodoUp(todo: Todo): void {
     this.arrayTool.moveElementLeft(this.todos, todo);
   }
   //Move the given object down
-  moveTodoDown(todo: Todo) {
+  moveTodoDown(todo: Todo): void {
     this.arrayTool.moveElementRight(this.todos, todo);
   }
   //Add new object
-  addTodo(todo: Todo) {
+  addTodo(todo: Todo): void {
     this.todos.push(todo);
   }
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>): void {
     moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
   }
 }

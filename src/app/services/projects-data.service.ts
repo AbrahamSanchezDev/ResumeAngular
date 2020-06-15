@@ -13,13 +13,13 @@ export class ProjectsDataService {
     {
       title: "Flip Game",
       description:
-        "<h2>Find them All!</h2>(Work in progress)<br> This will be a Concentration (card game) where you have to find pairs and when you find them all you win. <br>You will be able to upload your own images and use them in the game, or select from a list of preset group of images.This is to practice and learn JavaScript,HTML and CSS. <br>Select Images to use ,select the level of difficulty , the Start Game Button will be display when you have at least two (2) images to use. ",
+        "<h2>Find them All!</h2><br> This will be a Concentration (card game) where you have to find pairs and when you find them all you win. <br>You will be able to upload your own images and use them in the game, or select from a list of preset group of images.This is to practice and learn JavaScript,HTML and CSS. <br>Select Images to use ,select the level of difficulty , the Start Game Button will be display when you have at least two (2) images to use. ",
       component: FlipGameComponent,
     },
     {
       title: "Todos",
       description:
-        "Simple Todo List where you can add, remove and check if it is completed.",
+        "Simple Todo List where you can add, remove and check if it is completed.<br> You can also move them up and down by dragging them, or edit them by pressing on the 3 dots to open the menu ",
       component: TodosComponent,
     },
     {
