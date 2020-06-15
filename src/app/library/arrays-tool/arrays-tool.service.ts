@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ArraysToolService {
   constructor() {}
@@ -23,8 +23,6 @@ export class ArraysToolService {
       } else {
         array.splice(index, 2, array[newPos], array[index]);
       }
-    } else {
-      console.log('Do Nothing');
     }
   }
   //Move element at the given index to the left
@@ -47,7 +45,6 @@ export class ArraysToolService {
     let newPos = curIndex + 1;
     this.moveElementInArray(array, element, newPos);
   }
-
   //Remove the element from the array
   removeFromArray(array: any[], element: any): any[] {
     return array.filter((currentElement) => currentElement !== element);

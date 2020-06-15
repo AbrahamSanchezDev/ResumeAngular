@@ -29,6 +29,7 @@ import { ProjectPreviewComponent } from "./components/projects/project-preview/p
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
+import { MenuObjComponent } from './components/menu-obj/menu-obj.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatIconModule } from "@angular/material/icon";
     AngularPracticesComponent,
     AngularProjectsComponent,
     ProjectPreviewComponent,
+    MenuObjComponent,
   ],
   imports: [
     BrowserModule,

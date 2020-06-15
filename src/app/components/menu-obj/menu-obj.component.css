@@ -1,0 +1,10 @@
+.menu-parent {
+  margin: 0;
+  padding: 0;
+  height: 15px;
+}
+.menu {
+  color: rgb(255, 255, 255);
+  background: none;
+  border: none;
+}

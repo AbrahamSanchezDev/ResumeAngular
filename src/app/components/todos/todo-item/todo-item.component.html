@@ -1,16 +1,12 @@
 <div [ngClass]="setClasses()">
   <div class="main-todo">
-    <input
-      (change)="onToggle(todo)"
-      type="checkbox"
-      (click)="cancelClick()"
-      class="toggle-todo"
-    />
+    <input (change)="onToggle(todo)" type="checkbox" class="toggle-todo" />
 
     <p
       class="theTittle"
       *ngIf="!editMode; else elseBlock"
       (dblclick)="onSelect()"
+      (click)="onSelectTopic()"
     >
       {{ todo.title }}
     </p>
@@ -23,25 +19,6 @@
         class="input-todo"
       />
     </ng-template>
-
-    <button
-      mat-button
-      [matMenuTriggerFor]="beforeMenu"
-      class="menu"
-      (click)="cancelClick()"
-    >
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #beforeMenu="matMenu" xPosition="before">
-      <button (click)="toggleEdit()" mat-menu-item>Edit</button>
-      <button (click)="move(1)" mat-menu-item>Move Up</button>
-      <button (click)="move(-1)" mat-menu-item>Move Down</button>
-      <button (click)="onDelete(todo)" mat-menu-item>Delete</button>
-    </mat-menu>
-    <!-- <button (click)="move(1)" class="move-array">ʌ</button>
-    <button (click)="move(-1)" class="move-array">v</button>
-
-    <button (click)="toggleEdit()" class="edit">...</button>
-    <button (click)="onDelete(todo)" class="del">x</button> -->
+    <app-menu-obj [menu]="myMenu" (callback)="onOption($event)"></app-menu-obj>
   </div>
 </div>

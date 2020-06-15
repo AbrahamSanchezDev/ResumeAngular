@@ -1,0 +1,14 @@
+<div class="menu-parent">
+  <button mat-button [matMenuTriggerFor]="beforeMenu" class="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button
+      mat-menu-item
+      *ngFor="let obj of menu.data"
+      (click)="callOnMenu(obj)"
+    >
+      {{ obj.text }}
+    </button>
+  </mat-menu>
+</div>
