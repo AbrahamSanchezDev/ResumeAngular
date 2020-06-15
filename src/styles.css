@@ -367,3 +367,6 @@ a {
   height: var(--sizeY);
   background-position: -375px -301px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

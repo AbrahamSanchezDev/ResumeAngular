@@ -9,6 +9,7 @@ import {
 } from "@angular/core";
 import { Todo } from "src/app/model/Todo";
 import { TodoService } from "src/app/services/todo.service";
+import { MatMenuModule, MatMenuTrigger } from "@angular/material/menu";
 
 @Component({
   selector: "app-todo-item",
@@ -16,10 +17,13 @@ import { TodoService } from "src/app/services/todo.service";
   styleUrls: ["./todo-item.component.css"],
 })
 export class TodoItemComponent implements OnInit {
-  @Input() todo: Todo;
+  @Input() todo;
+  @Input() moveTo: Function;
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
   @ViewChild("inputObj") inputObj: ElementRef;
   editMode: boolean;
+
+  @ViewChild(MatMenuTrigger) menuTrigger: MatMenuTrigger;
   constructor(private todoServer: TodoService) {}
 
   ngOnInit() {
@@ -36,8 +40,10 @@ export class TodoItemComponent implements OnInit {
     return classes;
   }
   toggleEdit() {
+    this.cancelClick();
     this.editMode = !this.editMode;
     if (this.editMode) {
+      this.closeMenu();
     } else {
       if (this.inputObj) this.todo.title = this.inputObj.nativeElement.value;
     }
@@ -54,6 +60,7 @@ export class TodoItemComponent implements OnInit {
     todo.completed = !todo.completed;
   }
   onDelete(todo) {
+    this.closeMenu();
     this.deleteTodo.emit(todo);
     this.cancelClick();
   }
@@ -65,6 +72,11 @@ export class TodoItemComponent implements OnInit {
   }
   move(direction: number): void {
     this.cancelClick();
+    moveTo(this.todo, direction);
     console.log("Moved " + direction);
+    this.closeMenu();
+  }
+  closeMenu(): void {
+    this.menuTrigger.closeMenu();
   }
 }

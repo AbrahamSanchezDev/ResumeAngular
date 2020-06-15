@@ -26,6 +26,9 @@ import { ImagesGridDisplayComponent } from "./components/display/images-grid-dis
 import { AngularPracticesComponent } from "./components/projects/angular-practices/angular-practices.component";
 import { AngularProjectsComponent } from "./components/projects/angular-projects/angular-projects.component";
 import { ProjectPreviewComponent } from "./components/projects/project-preview/project-preview.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -52,7 +55,15 @@ import { ProjectPreviewComponent } from "./components/projects/project-preview/p
     AngularProjectsComponent,
     ProjectPreviewComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+  ],
   entryComponents: [
     TodosComponent,
     ExperienceObjComponent,
