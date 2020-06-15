@@ -31,7 +31,7 @@
 .todo {
   background: #5c5c5c;
   padding: 10px;
-  border-bottom: 1px #ccc dotted;
+  border-bottom: 1px #ccc solid;
 }
 .main-todo {
   margin: 0;

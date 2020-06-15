@@ -59,6 +59,7 @@ export class TodoItemComponent implements OnInit {
   //Toggle the edit on this object
   toggleEdit() {
     this.editMode = !this.editMode;
+    this.todo.SetEdit(this.editMode);
     if (this.editMode) {
       this.closeMenu();
     } else {
@@ -80,7 +81,7 @@ export class TodoItemComponent implements OnInit {
     }
   }
   //Toggle completed state of the object
-  onToggle(todo) {
+  onToggle(todo: Todo) {
     todo.completed = !todo.completed;
     this.sendEvent();
     this.exitEdit();

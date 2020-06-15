@@ -4,6 +4,14 @@
     (addTodo)="addTodo($event)"
     tempText="Add TODO...."
   ></app-add-todo>
-  <app-todo-item *ngFor="let todo of todos" [todo]="todo" [menu]="menu">
-  </app-todo-item>
+  <div cdkDropList (cdkDropListDropped)="drop($event)" class="example-list">
+    <app-todo-item
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      [menu]="menu"
+      cdkDrag
+      class="example-box"
+      [cdkDragDisabled]="todo.Edit()"
+    ></app-todo-item>
+  </div>
 </div>

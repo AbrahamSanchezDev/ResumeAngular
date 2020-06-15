@@ -29,7 +29,9 @@ import { ProjectPreviewComponent } from "./components/projects/project-preview/p
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
-import { MenuObjComponent } from './components/menu-obj/menu-obj.component';
+import { MenuObjComponent } from "./components/menu-obj/menu-obj.component";
+
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { MenuObjComponent } from './components/menu-obj/menu-obj.component';
     BrowserAnimationsModule,
     MatMenuModule,
     MatIconModule,
+    DragDropModule,
   ],
   entryComponents: [
     TodosComponent,

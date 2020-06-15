@@ -14,30 +14,16 @@ export class TodoService {
 
     this.onSelected.emit(id);
   }
+  private todos: Todo[] = [];
   //Get TODO LIst
-  getTodos() {
-    //TODO get from a local Json file or from json in google drive
-    return [
-      {
-        id: 0,
-        title: "Finish TODOs tutorial",
-        completed: false,
-      },
-      {
-        id: 1,
-        title: "Migrate Resume to Angular",
-        completed: false,
-      },
-      {
-        id: 2,
-        title: "Migrate Projects to Angular",
-        completed: false,
-      },
-      {
-        id: 3,
-        title: "Create the text to json component",
-        completed: false,
-      },
-    ];
+  getTodos(): Todo[] {
+    if (this.todos != null && this.todos.length > 0) {
+      return this.todos;
+    }
+    this.todos.push(new Todo(0, "Finish TODOs tutorial", false));
+    this.todos.push(new Todo(1, "Migrate Resume to Angular", false));
+    this.todos.push(new Todo(2, "Migrate Projects to Angular", false));
+    this.todos.push(new Todo(3, "Create the text to json component", false));
+    return this.todos;
   }
 }
