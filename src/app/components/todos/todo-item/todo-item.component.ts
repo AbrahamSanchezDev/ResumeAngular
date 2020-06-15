@@ -66,6 +66,12 @@ export class TodoItemComponent implements OnInit {
     }
     this.sendEvent();
   }
+  //Exit edit moved if it was on
+  exitEdit() {
+    if (this.editMode) {
+      this.toggleEdit();
+    }
+  }
   //When selected some other object if this is currently selected then deselected
   onSelectTodo(id: number): void {
     if (id != this.todo.id && this.editMode) {
@@ -76,6 +82,8 @@ export class TodoItemComponent implements OnInit {
   //Toggle completed state of the object
   onToggle(todo) {
     todo.completed = !todo.completed;
+    this.sendEvent();
+    this.exitEdit();
   }
   //On double click the text
   onSelect(): void {
@@ -109,8 +117,6 @@ export class TodoItemComponent implements OnInit {
     if (data.text == this.editText) {
       return;
     }
-    if (this.editMode) {
-      this.toggleEdit();
-    }
+    this.exitEdit();
   }
 }
