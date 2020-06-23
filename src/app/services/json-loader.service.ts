@@ -10,7 +10,7 @@ export class JsonLoaderService {
   constructor(private http: HttpClient) {}
 
   private jsonsPath = "assets/json/";
-  getExpObjs(jsonName: string): Observable<ExpObjModule> {
+  getExpObjects(jsonName: string): Observable<ExpObjModule> {
     var thePath = this.jsonsPath + jsonName;
     return this.http.get<ExpObjModule>(thePath);
   }

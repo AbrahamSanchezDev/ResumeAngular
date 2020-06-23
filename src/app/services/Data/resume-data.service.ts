@@ -9,11 +9,11 @@ import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
   providedIn: "root",
 })
 export class ResumeDataService {
-  private allExpObjs: ExpObjModule[] = [];
+  private allExpObjects: ExpObjModule[];
   allExpNames: string[] = ["expObj_1", "expObj_2", "expObj_3"];
 
-  enExpObjs: ExpObjModule[] = [];
-  esExpObjs: ExpObjModule[] = [];
+  enExpObjects: ExpObjModule[] = [];
+  esExpObjects: ExpObjModule[] = [];
   currentLang: string = "en";
 
   constructor(
@@ -23,10 +23,9 @@ export class ResumeDataService {
     this.translate.onLangChange.subscribe((lang: LangChangeEvent) => {
       this.currentLang = lang.lang;
       this.loadExpInCurrentLanguage();
-      console.log(this.currentLang);
     });
   }
-  //Skills by list of objs
+  //Skills by list of objects
   skills: ListObjModule[] = [
     {
       title: "General:",
@@ -122,40 +121,36 @@ export class ResumeDataService {
   }
   //Get Experience
   getExperience() {
-    if (this.allExpObjs != null && this.allExpObjs.length > 0) {
-      return;
+    if (this.allExpObjects) {
+      return this.allExpObjects;
     }
     this.loadExpInCurrentLanguage();
-    return this.allExpObjs;
+    return this.allExpObjects;
   }
   private loadExpInCurrentLanguage() {
     switch (this.currentLang) {
       case "es":
-        this.loadExpObjs(".es", this.esExpObjs);
-        this.allExpObjs = this.esExpObjs;
+        this.loadExpObjects(".es", this.esExpObjects);
+        this.allExpObjects = this.esExpObjects;
         break;
       default:
-        this.loadExpObjs("", this.enExpObjs);
-        this.allExpObjs = this.enExpObjs;
+        this.loadExpObjects("", this.enExpObjects);
+        this.allExpObjects = this.enExpObjects;
         break;
     }
   }
-  private loadExpObjs(lang: string, array: ExpObjModule[]) {
+  private loadExpObjects(lang: string, array: ExpObjModule[]) {
     if (array.length > 0) {
       return;
     }
-    console.log("loading : " + lang);
-
     for (let i = 0; i < this.allExpNames.length; i++) {
       let fileName = `${this.allExpNames[i]}${lang}.json`;
-      console.log("Loading : " + fileName);
-
       this.getExpObjWithName(fileName, array);
     }
   }
   //Get the data from the json loader
   private getExpObjWithName(expName: string, array: ExpObjModule[]) {
-    this.jsonLoader.getExpObjs(expName).subscribe((data) => {
+    this.jsonLoader.getExpObjects(expName).subscribe((data) => {
       array.push(data);
     });
   }

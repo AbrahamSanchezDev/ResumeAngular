@@ -18,8 +18,7 @@ export class ExperienceObjComponent implements OnInit {
 
   //Create the ExpObj description and save it as json
   createExp(theText: any) {
-    let theTextInArray = this.multiLineText.generateText();
-    this.expObj.description = theTextInArray;
+    this.expObj.description = this.multiLineText.generateText();
     this.downloadTool.DownloadTextToFileAsJson(this.expObj, theText);
   }
 }

@@ -27,6 +27,6 @@ export class ResumeComponent implements OnInit {
   }
 
   getExpObj(): ExpObjModule[] {
-    return this.resumeData.allExpObjs;
+    return this.resumeData.getExperience();
   }
 }

@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="media">
-  <a *ngFor="let info of contactMedia" href="{{ info.link }}" target="_blank">
+  <a *ngFor="let info of getMediaData()" href="{{ info.link }}" target="_blank">
     <img src="{{ info.src }}" alt="{{ info.altText }}" class="icon" />
   </a>
 </div>
