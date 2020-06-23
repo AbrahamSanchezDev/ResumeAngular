@@ -1,7 +1,7 @@
 <div class="infoList">
-  <ul *ngFor="let data of info">
-    <li>{{ data }}</li>
-  </ul>
+  <div class="multiple-line info">
+    <p>{{ "resumeIntroData" | translate }}</p>
+  </div>
 </div>
 <div class="media">
   <a *ngFor="let info of contactMedia" href="{{ info.link }}" target="_blank">

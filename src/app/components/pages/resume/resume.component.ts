@@ -9,12 +9,23 @@ import { ResumeDataService } from "src/app/services/Data/resume-data.service";
 })
 export class ResumeComponent implements OnInit {
   expObjs: ExpObjModule[];
-  endText: string;
+
+  curYear = new Date().getFullYear();
+  startedYear = 2008;
+  startedUnity = 2013;
+  currentAmountOfYears: number = this.curYear - this.startedYear;
+  yearsOfBeenUnityDev: number = this.curYear - this.startedUnity;
+
   constructor(private resumeData: ResumeDataService) {}
 
   ngOnInit() {
     this.resumeData.getExperience();
     this.expObjs = this.resumeData.allExpObjs;
-    this.endText = this.resumeData.getEndText();
+  }
+  getUnityYears(): string {
+    return this.yearsOfBeenUnityDev.toString();
+  }
+  getTotalYears(): string {
+    return this.currentAmountOfYears.toString();
   }
 }

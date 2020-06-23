@@ -10,3 +10,5 @@ npm run deploy
 
 //Start Server for testing
 ng serve -o
+
+i18n package : npm install @ngx-translate/core @ngx-translate/http-loader --save 

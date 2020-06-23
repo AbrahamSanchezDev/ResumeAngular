@@ -52,6 +52,12 @@
         "singleInstance": true,
         "color": "#fff",
         "command": "ng build --prod --output-path=E:/HTML/Resume --delete-output-path false --base-href https://holykiller.github.io/Resume/"
+      },
+      {
+        "name": "Extract x18n",
+        "singleInstance": true,
+        "color": "#ff2f",
+        "command": "ng xi18n --output-path src/locale"
       }
     ]
   }

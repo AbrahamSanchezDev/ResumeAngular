@@ -7,6 +7,6 @@ import { CommonModule } from "@angular/common";
 })
 export class ProjectObjModule {
   title: string = "Project";
-  description?: string = "decription";
+  description?: string = "description";
   component: any;
 }

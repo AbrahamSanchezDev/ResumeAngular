@@ -2,7 +2,7 @@
   <app-resume-intro></app-resume-intro>
   <section>
     <div class="bg-1">
-      <h2 class="h2Header">Experience</h2>
+      <h2 class="h2Header">{{ "experience" | translate }}</h2>
       <hr class="hrDotted" />
       <div class="expArea">
         <app-exp-obj-display
@@ -17,8 +17,13 @@
   </section>
   <section>
     <div class="summery bg-1">
-      <h3>Summary and Education</h3>
-      <p class="multi-line-display">{{ endText }}</p>
+      <h3>{{ "summaryAndEducation" | translate }}</h3>
+      <!-- <p>{{ "endText1" | translate }}</p> -->
+      <div
+        class="multiple-line"
+        [translate]="'endText'"
+        [translateParams]="{ unity: getUnityYears(), total: getTotalYears() }"
+      ></div>
     </div>
   </section>
 </div>

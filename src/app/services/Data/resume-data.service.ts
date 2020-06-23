@@ -10,11 +10,7 @@ import { ContactMediaModule } from "src/app/model/contact-media/contact-media.mo
 export class ResumeDataService {
   allExpObjs: ExpObjModule[] = [];
   allExpNames: string[] = ["expObj_1.json", "expObj_2.json", "expObj_3.json"];
-  info: string[] = [
-    "Email: abraham_gto@hotmail.com",
-    "Skype: lholykillerl",
-    "I'm willing to relocate.",
-  ];
+
   constructor(private jsonLoader: JsonLoaderService) {}
   //Skills by list of objs
   skills: ListObjModule[] = [
@@ -111,11 +107,6 @@ export class ResumeDataService {
   startedUnity = 2013;
   currentAmountOfYears: number = this.curYear - this.startedYear;
   yearsOfBeenUnityDev: number = this.curYear - this.startedUnity;
-  endText: string = `
-    I been learning and working on Unity3d for more than ${this.yearsOfBeenUnityDev} years, focusing in programming(c#) for pc games.And now I'm learing Web Development. I been a self-taught person more than ${this.currentAmountOfYears} years.
-
-    Right now I'm studying on a government open education system so i can get my Bachelor's Degree ,while also learning Web development and I plan to learn : React(front end) Unreal 4 Engine, c++,Python and ASP.net MVC.
-    I also have been learning Japanese in my free time because i would love to visit and if posible live in Japan in the future , i really like the culture ,its morals and all it has to offer.`;
   //Get the Skills
   getSkills(): ListObjModule[] {
     return this.skills;
@@ -138,9 +129,5 @@ export class ResumeDataService {
   //Get Media data from local data
   getMediaData(): ContactMediaModule[] {
     return this.contactMedia;
-  }
-  //Returns the ending text
-  getEndText(): string {
-    return this.endText;
   }
 }

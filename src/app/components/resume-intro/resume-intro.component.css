@@ -2,3 +2,14 @@
   background-color: rgba(240, 240, 240, 0.308);
   border-radius: 10%;
 }
+.info {
+  text-align: center;
+  padding: 10px;
+}
+/* small devices with 320px*/
+@media (max-width: 320px) {
+  .info {
+    font-size: 0.7em;
+    padding: 0;
+  }
+}

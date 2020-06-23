@@ -6,10 +6,10 @@ import { ProjectObjModule } from "src/app/model/project-obj/project-obj.module";
   templateUrl: "./component-dynamic-display.component.html",
   styleUrls: ["./component-dynamic-display.component.css"],
 })
-export abstract class ComponentDynamicDisplayComponent {
+export class ComponentDynamicDisplayComponent {
   projects: ProjectObjModule[];
   description: string;
-  abstract componentToLoad;
+  componentToLoad;
   //After selected the tab
   public onSelect(project: ProjectObjModule): void {
     this.description = project.description;

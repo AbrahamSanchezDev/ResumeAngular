@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -32,6 +32,13 @@ import { MatIconModule } from "@angular/material/icon";
 import { MenuObjComponent } from "./components/menu-obj/menu-obj.component";
 
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { ComponentDynamicDisplayComponent } from "./components/display/component-dynamic-display/component-dynamic-display.component";
+//i18n ngx-translate
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
 
 @NgModule({
   declarations: [
@@ -58,6 +65,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
     AngularProjectsComponent,
     ProjectPreviewComponent,
     MenuObjComponent,
+    ComponentDynamicDisplayComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +76,13 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
     MatMenuModule,
     MatIconModule,
     DragDropModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   entryComponents: [
     TodosComponent,

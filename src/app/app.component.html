@@ -3,7 +3,11 @@
     <h1>
       {{ name }}
     </h1>
-    <p>{{ description }}</p>
+    <p id="top-description">
+      {{ "description" | translate }}
+    </p>
+    <button (click)="english()">English</button>
+    <button (click)="spanish()">Español</button>
   </div>
   <div>
     <app-nav-control></app-nav-control>
