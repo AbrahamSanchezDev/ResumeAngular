@@ -5,7 +5,6 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { IntroComponent } from "./components/intro/intro.component";
 import { TodosComponent } from "./components/todos/todos.component";
 import { TodoItemComponent } from "./components/todos/todo-item/todo-item.component";
 import { HeaderComponent } from "./components/layout/header/header.component";
@@ -43,7 +42,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    IntroComponent,
     TodosComponent,
     TodoItemComponent,
     HeaderComponent,

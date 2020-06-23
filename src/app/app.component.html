@@ -1,14 +1,17 @@
 <div>
   <div style="text-align: center;" class="intro">
+    <div id="languages">
+      <button (click)="english()" class="lang en">English</button>
+      <button (click)="spanish()" class="lang es">Español</button>
+    </div>
     <h1>
       {{ name }}
     </h1>
     <p id="top-description">
       {{ "description" | translate }}
     </p>
-    <button (click)="english()">English</button>
-    <button (click)="spanish()">Español</button>
   </div>
+
   <div>
     <app-nav-control></app-nav-control>
     <router-outlet></router-outlet>

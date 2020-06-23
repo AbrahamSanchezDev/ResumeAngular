@@ -379,3 +379,19 @@ body {
 .multiple-line {
   white-space: pre-line;
 }
+
+/* small devices with 320px*/
+@media (max-width: 320px) {
+  body {
+    font-size: 0.9em;
+  }
+}
+/* small devices with 480px*/
+@media (max-width: 480px) {
+  .infoList {
+    margin: 1% 1%;
+  }
+}
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575px) {
+}

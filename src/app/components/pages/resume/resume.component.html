@@ -1,29 +1,26 @@
 <div class="mainBg">
+  <!-- Intro -->
   <app-resume-intro></app-resume-intro>
-  <section>
-    <div class="bg-1">
-      <h2 class="h2Header">{{ "experience" | translate }}</h2>
-      <hr class="hrDotted" />
-      <div class="expArea">
-        <app-exp-obj-display
-          *ngFor="let expObj of getExpObj()"
-          [expObj]="expObj"
-        ></app-exp-obj-display>
-      </div>
+  <!-- Experience -->
+  <div class="bg-1">
+    <h2 class="h2Header">{{ "experience" | translate }}</h2>
+    <hr class="hrDotted" />
+    <div class="expArea">
+      <app-exp-obj-display
+        *ngFor="let expObj of getExpObj()"
+        [expObj]="expObj"
+      ></app-exp-obj-display>
     </div>
-  </section>
-  <section>
-    <app-list-display title="Technical Skills"></app-list-display>
-  </section>
-  <section>
-    <div class="summery bg-1">
-      <h3>{{ "summaryAndEducation" | translate }}</h3>
-      <!-- <p>{{ "endText1" | translate }}</p> -->
-      <div
-        class="multiple-line"
-        [translate]="'endText'"
-        [translateParams]="{ unity: getUnityYears(), total: getTotalYears() }"
-      ></div>
-    </div>
-  </section>
+  </div>
+  <!-- Skills -->
+  <app-list-display title="{{ 'skills' | translate }}"></app-list-display>
+  <!-- Summary And Education -->
+  <div class="summery bg-1">
+    <h3>{{ "summaryAndEducation" | translate }}</h3>
+    <div
+      class="multiple-line"
+      [translate]="'endText'"
+      [translateParams]="{ unity: getUnityYears(), total: getTotalYears() }"
+    ></div>
+  </div>
 </div>

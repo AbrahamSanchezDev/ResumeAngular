@@ -9,9 +9,10 @@ import { ResumeDataService } from "src/app/services/Data/resume-data.service";
 })
 export class ListDisplayComponent implements OnInit {
   @Input() title: string = "title";
-  skills: ListObjModule[];
+
   constructor(private resumeData: ResumeDataService) {}
-  ngOnInit() {
-    this.skills = this.resumeData.getSkills();
+  ngOnInit() {}
+  getSkills(): ListObjModule[] {
+    return this.resumeData.getSkills();
   }
 }

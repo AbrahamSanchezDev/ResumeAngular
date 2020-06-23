@@ -12,9 +12,10 @@ export class ResumeDataService {
   private allExpObjects: ExpObjModule[];
   allExpNames: string[] = ["expObj_1", "expObj_2", "expObj_3"];
 
-  enExpObjects: ExpObjModule[] = [];
-  esExpObjects: ExpObjModule[] = [];
-  currentLang: string = "en";
+  private enExpObjects: ExpObjModule[] = [];
+  private esExpObjects: ExpObjModule[] = [];
+  private skills: ListObjModule[] = [];
+  private currentLang: string = "en";
 
   constructor(
     private jsonLoader: JsonLoaderService,
@@ -26,7 +27,7 @@ export class ResumeDataService {
     });
   }
   //Skills by list of objects
-  skills: ListObjModule[] = [
+  skillsEn: ListObjModule[] = [
     {
       title: "General:",
       list: [
@@ -42,16 +43,15 @@ export class ResumeDataService {
       title: "Programing in unity:",
       list: [
         "Game-play Features",
-        "Mechanic Systems",
         "Modding Support",
         "Multi Language Support",
-        "Flexible Ui build at runtime<br>(working on ui mod support)",
+        "Flexible Ui build at runtime",
       ],
     },
     {
       title: "Unity Editor Tools for:",
       list: [
-        "Speed up workflow in unity",
+        "Speed up workflow",
         "Manage data",
         "Handle existing content",
         "Adding new content",
@@ -60,6 +60,51 @@ export class ResumeDataService {
         "Automatization tools for level design",
         "Random generated buildings",
         "Modding support Tools",
+      ],
+    },
+    {
+      title: "Game Development Pipelines:",
+      list: [
+        "3d modeling <br> (Blender, Maya, Zbrush)",
+        "Texturing <br> (Substance painter , Photoshop, Gimp)",
+        "Rigging and Animation<br>(Blender)",
+      ],
+    },
+  ];
+  //Skills by list of objects
+  skillsEs: ListObjModule[] = [
+    {
+      title: "General:",
+      list: [
+        "C#",
+        "Unity 3d",
+        "Steam SDK  <br> (Steam Workshop , etc)",
+        "Game Development en general",
+        "Conocimientos básicos en algunas líneas <br>de producción para el desarrollo de juegos",
+        "HTML,CSS,JavaScript <br> Angular / Angular Jasmine(Auto Testing) ",
+      ],
+    },
+    {
+      title: "Programando en unity:",
+      list: [
+        "Game-play Features",
+        "Soporte para Modding",
+        "Soporte multi lenguaje",
+        "Ui flexible de construcción <br> al inicio de ejecución",
+      ],
+    },
+    {
+      title: "Herramientas de Editor en Unity para:",
+      list: [
+        "Acelerar el flujo de trabajo",
+        "Administrar datos",
+        "Manejar contenido existente",
+        "Agregar nuevo contenido",
+        "Herramientas del editor de idiomas múltiples",
+        "Creación y edición de Json",
+        "Herramientas de automatización para diseño de niveles",
+        "Creación de Edificios al azar",
+        "Herramientas de soporte de Modding",
       ],
     },
     {
@@ -127,18 +172,30 @@ export class ResumeDataService {
     this.loadExpInCurrentLanguage();
     return this.allExpObjects;
   }
+  //Load the current language if not loaded and set the current experiences to the correct language
   private loadExpInCurrentLanguage() {
     switch (this.currentLang) {
       case "es":
-        this.loadExpObjects(".es", this.esExpObjects);
-        this.allExpObjects = this.esExpObjects;
+        this.loadSpanish();
         break;
       default:
-        this.loadExpObjects("", this.enExpObjects);
-        this.allExpObjects = this.enExpObjects;
+        this.loadEnglish();
         break;
     }
   }
+  //Load content in spanish
+  private loadSpanish() {
+    this.loadExpObjects(".es", this.esExpObjects);
+    this.allExpObjects = this.esExpObjects;
+    this.skills = this.skillsEs;
+  }
+  //Load content in english
+  private loadEnglish() {
+    this.loadExpObjects("", this.enExpObjects);
+    this.allExpObjects = this.enExpObjects;
+    this.skills = this.skillsEn;
+  }
+  //Load al the experience objects and add it to the given array
   private loadExpObjects(lang: string, array: ExpObjModule[]) {
     if (array.length > 0) {
       return;
