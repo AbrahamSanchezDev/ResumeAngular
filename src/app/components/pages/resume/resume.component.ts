@@ -8,8 +8,6 @@ import { ResumeDataService } from "src/app/services/Data/resume-data.service";
   styleUrls: ["./resume.component.css"],
 })
 export class ResumeComponent implements OnInit {
-  expObjs: ExpObjModule[];
-
   curYear = new Date().getFullYear();
   startedYear = 2008;
   startedUnity = 2013;
@@ -20,12 +18,15 @@ export class ResumeComponent implements OnInit {
 
   ngOnInit() {
     this.resumeData.getExperience();
-    this.expObjs = this.resumeData.allExpObjs;
   }
   getUnityYears(): string {
     return this.yearsOfBeenUnityDev.toString();
   }
   getTotalYears(): string {
     return this.currentAmountOfYears.toString();
+  }
+
+  getExpObj(): ExpObjModule[] {
+    return this.resumeData.allExpObjs;
   }
 }

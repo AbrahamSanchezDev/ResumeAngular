@@ -8,13 +8,12 @@ import { ExpObjModule } from "src/app/model/exp-obj/exp-obj.module";
 })
 export class ExpObjDisplayComponent implements OnInit {
   @Input() expObj: ExpObjModule = new ExpObjModule();
-
-  des: string[];
-
   imgPath: string = "assets/img/";
+
   constructor() {}
 
-  ngOnInit() {
-    this.des = this.expObj.description;
+  ngOnInit() {}
+  getDescription(): string {
+    return this.expObj.description;
   }
 }

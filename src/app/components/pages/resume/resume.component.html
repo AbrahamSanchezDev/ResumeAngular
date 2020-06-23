@@ -6,7 +6,7 @@
       <hr class="hrDotted" />
       <div class="expArea">
         <app-exp-obj-display
-          *ngFor="let expObj of expObjs"
+          *ngFor="let expObj of getExpObj()"
           [expObj]="expObj"
         ></app-exp-obj-display>
       </div>

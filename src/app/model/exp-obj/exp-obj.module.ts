@@ -9,5 +9,5 @@ export class ExpObjModule {
   title: string;
   link: string;
   img: string;
-  description: string[];
+  description: string;
 }

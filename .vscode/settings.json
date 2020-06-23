@@ -54,6 +54,12 @@
         "command": "ng build --prod --output-path=E:/HTML/Resume --delete-output-path false --base-href https://holykiller.github.io/Resume/"
       },
       {
+        "name": "Start Server 4201",
+        "singleInstance": true,
+        "color": "#fff7",
+        "command": "ng serve --port 4201 -o"
+      },
+      {
         "name": "Extract x18n",
         "singleInstance": true,
         "color": "#ff2f",

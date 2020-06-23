@@ -3,15 +3,29 @@ import { JsonLoaderService } from "../json-loader.service";
 import { ExpObjModule } from "src/app/model/exp-obj/exp-obj.module";
 import { ListObjModule } from "src/app/model/list-obj/list-obj.module";
 import { ContactMediaModule } from "src/app/model/contact-media/contact-media.module";
+import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 
 @Injectable({
   providedIn: "root",
 })
 export class ResumeDataService {
-  allExpObjs: ExpObjModule[] = [];
-  allExpNames: string[] = ["expObj_1.json", "expObj_2.json", "expObj_3.json"];
+  private allExpObjs: ExpObjModule[] = [];
+  allExpNames: string[] = ["expObj_1", "expObj_2", "expObj_3"];
 
-  constructor(private jsonLoader: JsonLoaderService) {}
+  enExpObjs: ExpObjModule[] = [];
+  esExpObjs: ExpObjModule[] = [];
+  currentLang: string = "en";
+
+  constructor(
+    private jsonLoader: JsonLoaderService,
+    private translate: TranslateService
+  ) {
+    this.translate.onLangChange.subscribe((lang: LangChangeEvent) => {
+      this.currentLang = lang.lang;
+      this.loadExpInCurrentLanguage();
+      console.log(this.currentLang);
+    });
+  }
   //Skills by list of objs
   skills: ListObjModule[] = [
     {
@@ -102,11 +116,6 @@ export class ResumeDataService {
     },
   ];
 
-  curYear = new Date().getFullYear();
-  startedYear = 2008;
-  startedUnity = 2013;
-  currentAmountOfYears: number = this.curYear - this.startedYear;
-  yearsOfBeenUnityDev: number = this.curYear - this.startedUnity;
   //Get the Skills
   getSkills(): ListObjModule[] {
     return this.skills;
@@ -116,14 +125,38 @@ export class ResumeDataService {
     if (this.allExpObjs != null && this.allExpObjs.length > 0) {
       return;
     }
+    this.loadExpInCurrentLanguage();
+    return this.allExpObjs;
+  }
+  private loadExpInCurrentLanguage() {
+    switch (this.currentLang) {
+      case "es":
+        this.loadExpObjs(".es", this.esExpObjs);
+        this.allExpObjs = this.esExpObjs;
+        break;
+      default:
+        this.loadExpObjs("", this.enExpObjs);
+        this.allExpObjs = this.enExpObjs;
+        break;
+    }
+  }
+  private loadExpObjs(lang: string, array: ExpObjModule[]) {
+    if (array.length > 0) {
+      return;
+    }
+    console.log("loading : " + lang);
+
     for (let i = 0; i < this.allExpNames.length; i++) {
-      this.getExpObjWithName(this.allExpNames[i]);
+      let fileName = `${this.allExpNames[i]}${lang}.json`;
+      console.log("Loading : " + fileName);
+
+      this.getExpObjWithName(fileName, array);
     }
   }
   //Get the data from the json loader
-  private getExpObjWithName(expName: string) {
+  private getExpObjWithName(expName: string, array: ExpObjModule[]) {
     this.jsonLoader.getExpObjs(expName).subscribe((data) => {
-      this.allExpObjs.push(data);
+      array.push(data);
     });
   }
   //Get Media data from local data
