@@ -88,3 +88,13 @@
 .grid {
   width: 100%;
 }
+.solve-button {
+  background-image: var(--liBg);
+  opacity: 0.9;
+  width: 200px;
+  height: 30px;
+  color: #e2e2e2;
+  background-size: 100%;
+  background-position: 50% 50%;
+  margin-top: 5px;
+}

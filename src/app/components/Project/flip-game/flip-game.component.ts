@@ -135,9 +135,9 @@ export class FlipGameComponent implements OnInit {
   //Called to increase or decrease the difficulty
   increaseLevel(more: boolean) {
     if (more) {
-      if (this.curLevel < this.maxLevel) this.curLevel++;
+      if (this.curLevel < this.maxLevel) this.curLevel += 2;
     } else {
-      if (this.curLevel > 2) this.curLevel--;
+      if (this.curLevel > 2) this.curLevel -= 2;
     }
     this.createGrid();
   }
@@ -284,39 +284,18 @@ export class FlipGameComponent implements OnInit {
   }
   //Generate what images will be in the game
   generateRandomImgs() {
-    let imgIndex = 0;
-    let curTotal = 0;
-    const total = this.gameImages.length;
-    this.curGameImages.length = total;
-    let added = 0;
-    let random = 0;
-    this.usedIndex.length = 0;
-    while (curTotal < total) {
-      added = 0;
-      random = 0;
-      while (added < 2) {
-        random = Math.floor(Math.random() * total);
-        if (this.usedIndex.includes(random) == false) {
-          this.usedIndex.push(random);
-          this.curGameImages[random] = this.loadedImages[imgIndex];
-          added++;
-          curTotal++;
-          if (added >= 2) {
-            break;
-          }
-        }
-        if (curTotal >= total) {
-          break;
-        }
-      }
-      imgIndex++;
-      if (imgIndex >= this.loadedImages.length) {
-        imgIndex = 0;
-      }
-      if (curTotal >= total) {
-        break;
+    const total = (this.curLevel * this.curLevel) / 2;
+    let firstImgs = [];
+    let counter = 0;
+    for (let i = 0; i < total; i++) {
+      firstImgs.push(this.loadedImages[counter]);
+      firstImgs.push(this.loadedImages[counter]);
+      counter++;
+      if (counter >= this.loadedImages.length) {
+        counter = 0;
       }
     }
+    this.curGameImages = this.arrayTool.shuffle(firstImgs);
     this.usedIndex.length = 0;
   }
   //Show instructions to the user
@@ -331,6 +310,15 @@ export class FlipGameComponent implements OnInit {
       document.documentElement.style.setProperty("--gameObjs", "none");
     }
   }
+  solve(): void {
+    const gameImages = this.gameImages;
+    const curGameImages = this.curGameImages;
+    for (let i = 0; i < gameImages.length; i++) {
+      gameImages[i].css = curGameImages[i].css;
+      gameImages[i].src = curGameImages[i].src;
+      this.usedIndex.push(gameImages[i].id);
+    }
+  }
 
   //#region  Html getters
   getLoadedImages(): ImgDataModule[] {
@@ -338,6 +326,12 @@ export class FlipGameComponent implements OnInit {
   }
   getGameImages(): ImgDataModule[] {
     return this.gameImages;
+  }
+  gameActive(): boolean {
+    return this.inGame;
+  }
+  getCurrentLevel(): number {
+    return this.curLevel / 2;
   }
   //#endregion
 }

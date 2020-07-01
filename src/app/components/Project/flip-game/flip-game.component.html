@@ -6,7 +6,7 @@
         <button class=" {{ arg.css }}" (click)="onPreset(arg.id)"></button>
       </div>
       <div class="gameObj">
-        <p>Max : 10</p>
+        <p>Max : 5</p>
         <br />
         <input
           type="file"
@@ -21,13 +21,16 @@
     <div class="inputArea gameObj">
       Difficulty :
       <button class="smallButtons" (click)="increaseLevel(false)">-</button>
-      <label class="curLevel">{{ curLevel }}</label>
+      <label class="curLevel">{{ getCurrentLevel() }}</label>
       <button class="smallButtons" (click)="increaseLevel(true)">+</button>
     </div>
     <div>{{ displayText }}</div>
     <button class="startBut" (click)="onStartPress()">{{ startText }}</button>
   </div>
   <hr />
+  <button (click)="solve()" *ngIf="gameActive()" class="solve-button">
+    Solve
+  </button>
   <div class="mainCont">
     <div class="leftFlip gameObj">
       <h5>Images To Display:</h5>

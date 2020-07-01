@@ -9,7 +9,7 @@ import {
 import { FlipGameComponent } from "./flip-game.component";
 import { ImgDataModule } from "src/app/model/ImgData/img-data.module";
 
-fdescribe("FlipGameComponent", () => {
+describe("FlipGameComponent", () => {
   let component: FlipGameComponent;
   let fixture: ComponentFixture<FlipGameComponent>;
   let image: ImgDataModule = new ImgDataModule();
@@ -105,7 +105,7 @@ fdescribe("FlipGameComponent", () => {
 
   it("should increase and decrease the level", () => {
     component.increaseLevel(true);
-    expect(component.curLevel).toBe(5);
+    expect(component.curLevel).toBe(6);
     component.increaseLevel(false);
     expect(component.curLevel).toBe(4);
     //Test on max
@@ -298,5 +298,21 @@ fdescribe("FlipGameComponent", () => {
     component.showGameObjs(false);
     value = document.documentElement.style.getPropertyValue("--gameObjs");
     expect(value).toBe("none");
+  });
+
+  it("should Generate the current game images", () => {
+    component.loadedImages = component.animals;
+    component.curLevel = 6;
+    let total = component.curLevel * component.curLevel;
+    component.generateRandomImgs();
+    expect(component.curGameImages.length).toBe(total);
+  });
+
+  it("should Solve the game", () => {
+    component.increaseLevel(false);
+    component.onStartPress();
+    component.solve();
+    let canFlip = component.imageIsSelectable(image);
+    expect(canFlip).toBe(false);
   });
 });
