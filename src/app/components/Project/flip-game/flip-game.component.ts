@@ -158,21 +158,51 @@ export class FlipGameComponent implements OnInit {
       this.gameImages.push({ css: "fileSize", src: this.defaultImg, id: i });
     }
   }
+  //#region Check pairs
   //on selected an img in the grid display the img that was randomly generated
-  onSelect(img: ImgDataModule) {
+  onSelect(img: ImgDataModule): void {
+    if (!this.imageIsSelectable(img)) return;
+    this.setSelectedImageIndex(img);
+    //Check that there are two selected images
+    if (this.calculateMatchingPairs()) {
+      setTimeout(() => {
+        //Check if selected
+        if (this.matchingImages() == false) {
+          this.turnSelectedToHidden();
+        }
+        this.resetToNoneSelected();
+      }, 200);
+    }
+  }
+  //Reset to non selected
+  resetToNoneSelected(): void {
+    this.selectedImages[0] = -1;
+    this.selectedImages[1] = -1;
+  }
+  //Check that there are two images on display
+  calculateMatchingPairs(): boolean {
+    return this.selectedImages[0] != -1 && this.selectedImages[1] != -1;
+  }
+  //Check if the image wasn't selected before or is a complected combination
+  imageIsSelectable(img: ImgDataModule): boolean {
     if (this.inGame == false) {
       this.showOutput("Start the game first..");
-      return;
+      return false;
     }
     const index = img.id;
-    //don't select the same img if already selected
-    if (index === this.selectedImages[0] || index === this.selectedImages[1]) {
-      return;
+    //don't select the same img if already selected  -- its in an already completed index
+    if (
+      index === this.selectedImages[0] ||
+      index === this.selectedImages[1] ||
+      this.usedIndex.includes(index)
+    ) {
+      return false;
     }
-    //its in an already completed index
-    if (this.usedIndex.includes(index)) {
-      return;
-    }
+    return true;
+  }
+  //Set the given image to have the same css and src as the one in the current game images
+  setSelectedImageIndex(img: ImgDataModule): void {
+    const index = img.id;
     //display generated images
     img.css = this.curGameImages[index].css;
     img.src = this.curGameImages[index].src;
@@ -183,36 +213,42 @@ export class FlipGameComponent implements OnInit {
     } else if (this.selectedImages[1] == -1) {
       this.selectedImages[1] = index;
     }
-    if (this.selectedImages[0] != -1 && this.selectedImages[1] != -1) {
-      setTimeout(() => {
-        //Check if selected
-        if (
-          this.curGameImages[this.selectedImages[0]] ===
-          this.curGameImages[this.selectedImages[1]]
-        ) {
-          //couple was completed
-          this.wins++;
-          //add to already finished
-          this.usedIndex.push(this.gameImages[this.selectedImages[0]].id);
-          this.usedIndex.push(this.gameImages[this.selectedImages[1]].id);
-          //when all couples was found
-          if (this.wins >= this.curGameImages.length / 2) {
-            this.onWin();
-          }
-        } else {
-          //Reset to default data
-          this.gameImages[this.selectedImages[0]].css = this.defaultcss;
-          this.gameImages[this.selectedImages[0]].src = this.defaultImg;
-          //Reset to default data
-          this.gameImages[this.selectedImages[1]].css = this.defaultcss;
-          this.gameImages[this.selectedImages[1]].src = this.defaultImg;
-        }
-        //Reset to non selected
-        this.selectedImages[0] = -1;
-        this.selectedImages[1] = -1;
-      }, 200);
+  }
+  //Check if a pair is selected
+  matchingImages(): boolean {
+    if (
+      this.curGameImages[this.selectedImages[0]] ===
+      this.curGameImages[this.selectedImages[1]]
+    ) {
+      //couple was completed
+      this.wins++;
+      //add to already finished
+      this.usedIndex.push(this.gameImages[this.selectedImages[0]].id);
+      this.usedIndex.push(this.gameImages[this.selectedImages[1]].id);
+      //when all couples was found
+      this.checkIfWin();
+      return true;
+    }
+
+    return false;
+  }
+  //Return the selected images to be hidden
+  turnSelectedToHidden(): void {
+    //Reset to default data
+    this.gameImages[this.selectedImages[0]].css = this.defaultcss;
+    this.gameImages[this.selectedImages[0]].src = this.defaultImg;
+    //Reset to default data
+    this.gameImages[this.selectedImages[1]].css = this.defaultcss;
+    this.gameImages[this.selectedImages[1]].src = this.defaultImg;
+  }
+  //Check if the total wins are the amount needed to win the game
+  checkIfWin(): void {
+    if (this.wins >= this.curGameImages.length / 2) {
+      this.onWin();
     }
   }
+  //#endregion
+
   //When finish the game
   onWin() {
     this.showOutput("Congratulations you won!!!");
