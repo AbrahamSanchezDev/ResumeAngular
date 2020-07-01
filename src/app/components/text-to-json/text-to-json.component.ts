@@ -8,7 +8,7 @@ import { DownloadToolService } from "src/app/service/tool/download-tool/download
 export class TextToJsonComponent implements OnInit {
   myText: string[];
 
-  constructor(private downloadTool: DownloadToolService) {}
+  constructor(public downloadTool: DownloadToolService) {}
 
   ngOnInit() {
     //TODO remove this and get the data from json
@@ -19,12 +19,15 @@ export class TextToJsonComponent implements OnInit {
       "And another one!",
     ];
   }
-  addData(theText) {
+  //Add text to the list
+  addData(theText: string) {
     this.myText.push(theText);
   }
-  deleteTextData(theText) {
+  //Delete text from the list
+  deleteTextData(theText: string) {
     this.myText = this.myText.filter((t) => t !== theText);
   }
+  //Create the json file with the array of strings as data
   createJson(fileName: string) {
     if (this.myText != null && this.myText.length > 0) {
       this.downloadTool.DownloadTextToFileAsJson(this.myText, fileName);
