@@ -19,7 +19,7 @@ import { MenuObjComponent } from "../../menu-obj/menu-obj.component";
   styleUrls: ["./todo-item.component.css"],
 })
 export class TodoItemComponent implements OnInit {
-  @Input() todo: Todo;
+  @Input() todo: Todo = new Todo(0, "", false);
   @Input() moveTo: Function;
   @Input() menu: Menu;
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
@@ -39,6 +39,7 @@ export class TodoItemComponent implements OnInit {
   }
   //Combine the global menu with the local menu
   combineMenus(): void {
+    if (this.menu == null) return;
     if (this.myMenu == null) {
       this.myMenu = new Menu();
     }
@@ -59,11 +60,13 @@ export class TodoItemComponent implements OnInit {
   //Toggle the edit on this object
   toggleEdit() {
     this.editMode = !this.editMode;
-    this.todo.SetEdit(this.editMode);
-    if (this.editMode) {
-      this.closeMenu();
-    } else {
-      if (this.inputObj) this.todo.title = this.inputObj.nativeElement.value;
+    if (this.todo) {
+      this.todo.SetEdit(this.editMode);
+      if (this.editMode) {
+        this.closeMenu();
+      } else {
+        if (this.inputObj) this.todo.title = this.inputObj.nativeElement.value;
+      }
     }
     this.sendEvent();
   }

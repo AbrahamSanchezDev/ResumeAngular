@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ImgDataModule } from "src/app/model/ImgData/img-data.module";
-import { ImagesGridDisplayComponent } from "../../display/images-grid-display/images-grid-display.component";
 
 @Component({
   selector: "app-flip-game",
@@ -30,23 +29,23 @@ export class FlipGameComponent implements OnInit {
       id: 3,
     },
   ];
-  //imgs to display
-  loadedImgs: ImgDataModule[] = [];
-  //imgs in the grid
-  gameImgs: ImgDataModule[] = [];
-  //indexs for the random generated imges
+  //images to display
+  loadedImages: ImgDataModule[] = [];
+  //images in the grid
+  gameImages: ImgDataModule[] = [];
+  //indexes for the random generated images
   usedIndex: number[] = [];
   //current game random generated images
-  curGameImgs: ImgDataModule[] = [];
+  curGameImages: ImgDataModule[] = [];
 
-  //Other imgs
+  //Other images
   animals: ImgDataModule[] = [];
   foods: ImgDataModule[] = [];
   monsters: ImgDataModule[] = [];
-  usersImgs: ImgDataModule[] = [];
+  usersImages: ImgDataModule[] = [];
 
   //selected indexes
-  selectedImgs: number[] = [-1, -1];
+  selectedImages: number[] = [-1, -1];
 
   curLevel: number = 4;
   private maxLevel: number = 10;
@@ -79,58 +78,58 @@ export class FlipGameComponent implements OnInit {
       });
     }
     this.onPreset(0);
-
     this.createGrid();
   }
-  //On Select an img set the preset or the imgs from the users
-  onPreset(id: number) {
+  //On Select an img set the preset or the images from the users
+  onPreset(id: number): void {
     switch (id) {
       case 0:
-        this.loadImgs(this.animals);
+        this.loadImages(this.animals);
         break;
       case 1:
-        this.loadImgs(this.foods);
+        this.loadImages(this.foods);
         break;
       case 2:
-        this.loadImgs(this.monsters);
+        this.loadImages(this.monsters);
         break;
       case 3:
-        this.loadImgs(this.usersImgs);
+        this.loadImages(this.usersImages);
         break;
     }
   }
-  //set the given imgs to be display
-  private loadImgs(imgs: ImgDataModule[]) {
-    this.loadedImgs = imgs;
+  //set the given images to be display
+  private loadImages(images: ImgDataModule[]) {
+    this.loadedImages = images;
   }
   //Get the img src to display
-  getDisplay(img: ImgDataModule) {
+  getDisplay(img: ImgDataModule): string {
     if (img.src != null) {
       return img.src;
     }
     return "";
   }
-  //Get the css class to disply
-  getCss(img: ImgDataModule) {
+  //Get the css class to display
+  getCss(img: ImgDataModule): string {
     return img.css;
   }
   //On Selected imgs
-  onChange(event: any) {
-    this.usersImgs.length = 0;
-    let totalImgs = event.target.files.length;
-    if (totalImgs > 10) {
-      totalImgs = 10;
+  onChange(event: any): void {
+    this.usersImages.length = 0;
+    let totalImages = event.target.files.length;
+    if (totalImages > 10) {
+      totalImages = 10;
     }
-    for (let i = 0; i < totalImgs; i++) {
+    for (let i = 0; i < totalImages; i++) {
       const reader = new FileReader();
-      reader.onload = () => this.addToUsers(reader.result);
+      reader.onload = () => this.addToUsers(reader.result.toString());
+
       reader.readAsDataURL(event.target.files[i]);
     }
     this.onPreset(3);
   }
   //Add img to the user images
-  addToUsers(data: any) {
-    this.usersImgs.push({ css: "fileSize", src: data, id: 0 });
+  addToUsers(data: string): void {
+    this.usersImages.push({ css: "fileSize", src: data, id: 0 });
   }
   //Called to increase or decrease the difficulty
   increaseLevel(more: boolean) {
@@ -154,9 +153,9 @@ export class FlipGameComponent implements OnInit {
     );
     //Set the data to a clean version
     const total = this.curLevel * this.curLevel;
-    this.gameImgs.length = 0;
+    this.gameImages.length = 0;
     for (let i = 0; i < total; i++) {
-      this.gameImgs.push({ css: "fileSize", src: this.defaultImg, id: i });
+      this.gameImages.push({ css: "fileSize", src: this.defaultImg, id: i });
     }
   }
   //on selected an img in the grid display the img that was randomly generated
@@ -166,51 +165,51 @@ export class FlipGameComponent implements OnInit {
       return;
     }
     const index = img.id;
-    //dont select the same img if already selected
-    if (index === this.selectedImgs[0] || index === this.selectedImgs[1]) {
+    //don't select the same img if already selected
+    if (index === this.selectedImages[0] || index === this.selectedImages[1]) {
       return;
     }
-    //its in an already compleded index
+    //its in an already completed index
     if (this.usedIndex.includes(index)) {
       return;
     }
-    //display generated imgs
-    img.css = this.curGameImgs[index].css;
-    img.src = this.curGameImgs[index].src;
+    //display generated images
+    img.css = this.curGameImages[index].css;
+    img.src = this.curGameImages[index].src;
 
     //set the index that was click to the arrays
-    if (this.selectedImgs[0] == -1) {
-      this.selectedImgs[0] = index;
-    } else if (this.selectedImgs[1] == -1) {
-      this.selectedImgs[1] = index;
+    if (this.selectedImages[0] == -1) {
+      this.selectedImages[0] = index;
+    } else if (this.selectedImages[1] == -1) {
+      this.selectedImages[1] = index;
     }
-    if (this.selectedImgs[0] != -1 && this.selectedImgs[1] != -1) {
+    if (this.selectedImages[0] != -1 && this.selectedImages[1] != -1) {
       setTimeout(() => {
         //Check if selected
         if (
-          this.curGameImgs[this.selectedImgs[0]] ===
-          this.curGameImgs[this.selectedImgs[1]]
+          this.curGameImages[this.selectedImages[0]] ===
+          this.curGameImages[this.selectedImages[1]]
         ) {
           //couple was completed
           this.wins++;
           //add to already finished
-          this.usedIndex.push(this.gameImgs[this.selectedImgs[0]].id);
-          this.usedIndex.push(this.gameImgs[this.selectedImgs[1]].id);
+          this.usedIndex.push(this.gameImages[this.selectedImages[0]].id);
+          this.usedIndex.push(this.gameImages[this.selectedImages[1]].id);
           //when all couples was found
-          if (this.wins >= this.curGameImgs.length / 2) {
+          if (this.wins >= this.curGameImages.length / 2) {
             this.onWin();
           }
         } else {
           //Reset to default data
-          this.gameImgs[this.selectedImgs[0]].css = this.defaultcss;
-          this.gameImgs[this.selectedImgs[0]].src = this.defaultImg;
+          this.gameImages[this.selectedImages[0]].css = this.defaultcss;
+          this.gameImages[this.selectedImages[0]].src = this.defaultImg;
           //Reset to default data
-          this.gameImgs[this.selectedImgs[1]].css = this.defaultcss;
-          this.gameImgs[this.selectedImgs[1]].src = this.defaultImg;
+          this.gameImages[this.selectedImages[1]].css = this.defaultcss;
+          this.gameImages[this.selectedImages[1]].src = this.defaultImg;
         }
         //Reset to non selected
-        this.selectedImgs[0] = -1;
-        this.selectedImgs[1] = -1;
+        this.selectedImages[0] = -1;
+        this.selectedImages[1] = -1;
       }, 200);
     }
   }
@@ -228,12 +227,14 @@ export class FlipGameComponent implements OnInit {
     }
     // this.displayText = "Game Started!";
     this.showOutput("");
-    if (this.loadedImgs.length == 0) {
+    if (this.loadedImages.length == 0) {
       this.showOutput("Need to select items to use");
       return;
     }
+    this.startGame();
+  }
+  startGame() {
     this.startText = "Reset Game";
-
     this.inGame = true;
     this.showGameObjs(!this.inGame);
     this.generateRandomImgs();
@@ -249,8 +250,8 @@ export class FlipGameComponent implements OnInit {
   generateRandomImgs() {
     let imgIndex = 0;
     let curTotal = 0;
-    const total = this.gameImgs.length;
-    this.curGameImgs.length = total;
+    const total = this.gameImages.length;
+    this.curGameImages.length = total;
     let added = 0;
     let random = 0;
     this.usedIndex.length = 0;
@@ -261,7 +262,7 @@ export class FlipGameComponent implements OnInit {
         random = Math.floor(Math.random() * total);
         if (this.usedIndex.includes(random) == false) {
           this.usedIndex.push(random);
-          this.curGameImgs[random] = this.loadedImgs[imgIndex];
+          this.curGameImages[random] = this.loadedImages[imgIndex];
           added++;
           curTotal++;
           if (added >= 2) {
@@ -273,7 +274,7 @@ export class FlipGameComponent implements OnInit {
         }
       }
       imgIndex++;
-      if (imgIndex >= this.loadedImgs.length) {
+      if (imgIndex >= this.loadedImages.length) {
         imgIndex = 0;
       }
       if (curTotal >= total) {

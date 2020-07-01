@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { Routes, RouterModule } from "@angular/router";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -26,8 +27,7 @@ import { AngularPracticesComponent } from "./components/projects/angular-practic
 import { AngularProjectsComponent } from "./components/projects/angular-projects/angular-projects.component";
 import { ProjectPreviewComponent } from "./components/projects/project-preview/project-preview.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatMenuModule } from "@angular/material/menu";
-import { MatIconModule } from "@angular/material/icon";
+
 import { MenuObjComponent } from "./components/menu-obj/menu-obj.component";
 
 import { DragDropModule } from "@angular/cdk/drag-drop";
@@ -35,9 +35,13 @@ import { ComponentDynamicDisplayComponent } from "./components/display/component
 //i18n ngx-translate
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
+import { TranslateService } from "@ngx-translate/core";
+import { InUseMaterialModule } from "./material-module";
+import { NgxTranslate } from "./ngx-translate";
 
 @NgModule({
   declarations: [
@@ -71,8 +75,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatMenuModule,
-    MatIconModule,
     DragDropModule,
     TranslateModule.forRoot({
       loader: {
@@ -81,6 +83,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    InUseMaterialModule,
+    NgxTranslate,
   ],
   entryComponents: [
     TodosComponent,
@@ -88,7 +92,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TextToJsonComponent,
     FlipGameComponent,
   ],
-  providers: [],
+  providers: [TranslateService],
   bootstrap: [AppComponent],
+  exports: [RouterModule],
 })
 export class AppModule {}

@@ -32,4 +32,10 @@ export class MenuObjComponent implements OnInit {
     this.closeMenu();
     this.callback.emit(data);
   }
+  getMenuData(): MenuData[] {
+    if (this.menu) {
+      return this.menu.data;
+    }
+    return null;
+  }
 }

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { ResumeComponent } from "./components/pages/resume/resume.component";
 import { ProjectsComponent } from "./components/projects/projects.component";
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: "", component: ResumeComponent },
   { path: "projects", component: ProjectsComponent },
 ];

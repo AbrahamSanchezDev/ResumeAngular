@@ -1,16 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MenuObjComponent } from './menu-obj.component';
+import { MenuObjComponent } from "./menu-obj.component";
+import { InUseMaterialModule } from "src/app/material-module";
 
-describe('MenuObjComponent', () => {
+describe("MenuObjComponent", () => {
   let component: MenuObjComponent;
   let fixture: ComponentFixture<MenuObjComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuObjComponent ]
-    })
-    .compileComponents();
+      declarations: [MenuObjComponent],
+      imports: [InUseMaterialModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('MenuObjComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

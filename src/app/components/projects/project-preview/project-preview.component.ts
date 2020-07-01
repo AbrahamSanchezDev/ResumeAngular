@@ -21,4 +21,27 @@ export class ProjectPreviewComponent implements OnInit {
   valid(): boolean {
     return this.project != null;
   }
+
+  //Get the project name
+  getName(): string {
+    if (this.project) {
+      return this.project.name;
+    }
+    return "";
+  }
+  //Get the project img
+  getImg(): string {
+    if (this.project) {
+      return this.project.img;
+    }
+    return "";
+  }
+
+  //Get the project description
+  getDescription(): string {
+    if (this.project) {
+      return this.project.description;
+    }
+    return "";
+  }
 }

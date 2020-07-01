@@ -1,16 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { NavControlComponent } from './nav-control.component';
+import { NavControlComponent } from "./nav-control.component";
+import { NgxTranslate } from "src/app/ngx-translate";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-describe('NavControlComponent', () => {
+describe("NavControlComponent", () => {
   let component: NavControlComponent;
   let fixture: ComponentFixture<NavControlComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavControlComponent ]
-    })
-    .compileComponents();
+      declarations: [NavControlComponent],
+      imports: [NgxTranslate, HttpClientTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('NavControlComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

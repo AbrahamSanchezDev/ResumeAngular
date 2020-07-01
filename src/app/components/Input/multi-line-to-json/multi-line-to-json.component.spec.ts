@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MultiLineToJsonComponent } from './multi-line-to-json.component';
+import { MultiLineToJsonComponent } from "./multi-line-to-json.component";
 
-describe('MultiLineToJsonComponent', () => {
+describe("MultiLineToJsonComponent", () => {
   let component: MultiLineToJsonComponent;
   let fixture: ComponentFixture<MultiLineToJsonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultiLineToJsonComponent ]
-    })
-    .compileComponents();
+      declarations: [MultiLineToJsonComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,16 @@ describe('MultiLineToJsonComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should return the content text", () => {
+    let text = component.generateText();
+    expect(text).toEqual("");
+
+    component.content = "Some Content";
+    text = component.generateText();
+    expect(text).toEqual("Some Content");
   });
 });

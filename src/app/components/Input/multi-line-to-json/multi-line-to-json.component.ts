@@ -15,9 +15,9 @@ export class MultiLineToJsonComponent implements OnInit {
 
   ngOnInit() {}
 
-  generateText() {
-    if (this.content == null || this.content.length == 0) {
-      return;
+  generateText(): string {
+    if (this.content == null) {
+      return "";
     }
     return this.content;
   }

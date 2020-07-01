@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AddTextComponent } from './add-text.component';
+import { AddTextComponent } from "./add-text.component";
 
-describe('AddTextComponent', () => {
+describe("AddTextComponent", () => {
   let component: AddTextComponent;
   let fixture: ComponentFixture<AddTextComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddTextComponent ]
-    })
-    .compileComponents();
+      declarations: [AddTextComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,16 @@ describe('AddTextComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should send the text as event", () => {
+    spyOn(component.addTextData, "emit");
+    component.onSubmit();
+    expect(component.addTextData.emit).not.toHaveBeenCalled();
+    component.myText = "Some Text";
+    component.onSubmit();
+    expect(component.addTextData.emit).toHaveBeenCalled();
   });
 });

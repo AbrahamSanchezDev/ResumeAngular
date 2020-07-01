@@ -5,7 +5,7 @@
   <mat-menu #beforeMenu="matMenu" xPosition="before">
     <button
       mat-menu-item
-      *ngFor="let obj of menu.data"
+      *ngFor="let obj of getMenuData()"
       (click)="callOnMenu(obj)"
     >
       {{ obj.text }}
