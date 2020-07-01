@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ImgDataModule } from "src/app/model/ImgData/img-data.module";
+import { ArraysToolService } from "src/app/service/tool/arrays-tool/arrays-tool.service";
 
 @Component({
   selector: "app-flip-game",
@@ -59,7 +60,7 @@ export class FlipGameComponent implements OnInit {
 
   private inGame: boolean = false;
   wins: number = 0;
-  constructor() {}
+  constructor(public arrayTool: ArraysToolService) {}
 
   ngOnInit() {
     //Load default images from the presets
@@ -330,4 +331,13 @@ export class FlipGameComponent implements OnInit {
       document.documentElement.style.setProperty("--gameObjs", "none");
     }
   }
+
+  //#region  Html getters
+  getLoadedImages(): ImgDataModule[] {
+    return this.loadedImages;
+  }
+  getGameImages(): ImgDataModule[] {
+    return this.gameImages;
+  }
+  //#endregion
 }

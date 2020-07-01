@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Todo } from "../../model/Todo";
 import { TodoService } from "../../services/todo.service";
 import { Menu } from "src/app/model/menu/Menu";
-import { ArraysToolService } from "src/app/library/arrays-tool/arrays-tool.service";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
+import { ArraysToolService } from "src/app/service/tool/arrays-tool/arrays-tool.service";
 
 @Component({
   selector: "app-todos",

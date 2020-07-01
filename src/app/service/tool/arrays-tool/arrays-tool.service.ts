@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ArraysToolService {
   constructor() {}
@@ -9,20 +9,15 @@ export class ArraysToolService {
   moveElementInArray(array: any[], element: any, newPos: number): void {
     var index = array.indexOf(element);
     // Item non-existent?
-    if (index == -1) {
+    if (index == -1 || newPos >= array.length) {
+      console.log('Out of index or element is not in the array');
       return;
     }
-    if (index >= array.length) {
-      return;
-    }
-    // If there is a previous element in sections
-    if (array[newPos]) {
-      // Swap elements
-      if (newPos < index) {
-        array.splice(newPos, 2, array[index], array[newPos]);
-      } else {
-        array.splice(index, 2, array[newPos], array[index]);
-      }
+    // Swap elements
+    if (newPos < index) {
+      array.splice(newPos, 2, array[index], array[newPos]);
+    } else {
+      array.splice(index, 2, array[newPos], array[index]);
     }
   }
   //Move element at the given index to the left
@@ -45,8 +40,33 @@ export class ArraysToolService {
     let newPos = curIndex + 1;
     this.moveElementInArray(array, element, newPos);
   }
+
   //Remove the element from the array
   removeFromArray(array: any[], element: any): any[] {
     return array.filter((currentElement) => currentElement !== element);
+  }
+  //Combine two arrays
+  combine(array: any[], other: any[]): any[] {
+    return [...array, ...other];
+  }
+  //shuffle the array content
+  shuffle(array: any[]): any[] {
+    var currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
   }
 }
