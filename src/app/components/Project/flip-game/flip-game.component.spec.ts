@@ -260,4 +260,43 @@ fdescribe("FlipGameComponent", () => {
   });
 
   //#endregion
+
+  it("should call on win", () => {
+    spyOn(component, "showOutput");
+    component.onWin();
+    expect(component.startText).toContain("New");
+    expect(component.showOutput).toHaveBeenCalled();
+  });
+  it("should reset the game if there one active", () => {
+    spyOn(component, "resetGame");
+    component.startGame();
+    component.onStartPress();
+    expect(component.resetGame).toHaveBeenCalled();
+  });
+  it("should start a new game", () => {
+    spyOn(component, "startGame");
+    component.onStartPress();
+    expect(component.startGame).toHaveBeenCalled();
+  });
+  it("should not start a new game since there are no loaded images", () => {
+    spyOn(component, "startGame");
+    component.loadedImages = [];
+    component.onStartPress();
+    expect(component.startGame).not.toHaveBeenCalled();
+  });
+  it("should reset the game", () => {
+    spyOn(component, "showGameObjs");
+    component.resetGame();
+    expect(component.showGameObjs).toHaveBeenCalled();
+  });
+
+  it("should toggle the display of the elements", () => {
+    component.showGameObjs(true);
+    let value = document.documentElement.style.getPropertyValue("--gameObjs");
+    expect(value).toBe("block");
+    //Set value to none
+    component.showGameObjs(false);
+    value = document.documentElement.style.getPropertyValue("--gameObjs");
+    expect(value).toBe("none");
+  });
 });

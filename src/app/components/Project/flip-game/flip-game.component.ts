@@ -261,7 +261,6 @@ export class FlipGameComponent implements OnInit {
       this.resetGame();
       return;
     }
-    // this.displayText = "Game Started!";
     this.showOutput("");
     if (this.loadedImages.length == 0) {
       this.showOutput("Need to select items to use");
