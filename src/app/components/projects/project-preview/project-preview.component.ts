@@ -21,7 +21,6 @@ export class ProjectPreviewComponent implements OnInit {
   valid(): boolean {
     return this.project != null;
   }
-
   //Get the project name
   getName(): string {
     if (this.project) {
@@ -36,7 +35,6 @@ export class ProjectPreviewComponent implements OnInit {
     }
     return "";
   }
-
   //Get the project description
   getDescription(): string {
     if (this.project) {

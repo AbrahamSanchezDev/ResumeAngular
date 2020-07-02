@@ -23,10 +23,11 @@ describe("FlipGameComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FlipGameComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
     image.css = "Some Class";
     image.src = "google.com";
     image.id = 1;
+    fixture.detectChanges();
   });
 
   it("should create", () => {
@@ -126,6 +127,7 @@ describe("FlipGameComponent", () => {
       component.curGameImages.push(component.animals[i]);
       component.curGameImages.push(component.animals[i]);
     }
+    component.createGrid();
   };
   it("should check for a match and be one", fakeAsync(() => {
     spyOn(component, "resetToNoneSelected");
@@ -215,6 +217,7 @@ describe("FlipGameComponent", () => {
 
   it("should check if the images match", () => {
     setCurrentImagesToAnimals();
+
     component.selectedImages[0] = 0;
     component.selectedImages[1] = 1;
 
@@ -269,7 +272,7 @@ describe("FlipGameComponent", () => {
   });
   it("should reset the game if there one active", () => {
     spyOn(component, "resetGame");
-    component.startGame();
+    component.onStartPress();
     component.onStartPress();
     expect(component.resetGame).toHaveBeenCalled();
   });

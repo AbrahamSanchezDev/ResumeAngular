@@ -23,7 +23,7 @@ describe("AddTodoComponent", () => {
   });
   it("should Submit the event to add the todo", () => {
     spyOn(component.addTodo, "emit");
-
+    component.title = null;
     component.onSubmit();
     expect(component.addTodo.emit).not.toHaveBeenCalled();
 

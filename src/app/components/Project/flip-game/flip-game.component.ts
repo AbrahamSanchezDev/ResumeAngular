@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { ImgDataModule } from "src/app/model/ImgData/img-data.module";
 import { ArraysToolService } from "src/app/service/tool/arrays-tool/arrays-tool.service";
+import { ImagesGridDisplayComponent } from "../../display/images-grid-display/images-grid-display.component";
 
 @Component({
   selector: "app-flip-game",
@@ -79,7 +80,9 @@ export class FlipGameComponent implements OnInit {
       });
     }
     this.onPreset(0);
-    this.createGrid();
+    setTimeout(() => {
+      this.createGrid();
+    }, 10);
   }
   //On Select an img set the preset or the images from the users
   onPreset(id: number): void {
@@ -144,20 +147,19 @@ export class FlipGameComponent implements OnInit {
   //Create grid to display
   createGrid() {
     let totalWidth = this.curLevel * this.imageWidth;
-    document.documentElement.style.setProperty(
-      "--gridX",
-      totalWidth.toString() + "px"
-    );
-    document.documentElement.style.setProperty(
-      "--gridY",
-      totalWidth.toString() + "px"
-    );
+    //Set the grid size
+    this.setSize(totalWidth, totalWidth);
     //Set the data to a clean version
     const total = this.curLevel * this.curLevel;
     this.gameImages.length = 0;
     for (let i = 0; i < total; i++) {
       this.gameImages.push({ css: "fileSize", src: this.defaultImg, id: i });
     }
+  }
+  //Set the grid width and height this will control how the images are displayed
+  setSize(x: number, y: number): void {
+    document.documentElement.style.setProperty("--gridX", x.toString() + "px");
+    document.documentElement.style.setProperty("--gridY", y.toString() + "px");
   }
   //#region Check pairs
   //on selected an img in the grid display the img that was randomly generated

@@ -16,7 +16,6 @@ import { ImgDataModule } from "src/app/model/ImgData/img-data.module";
 export class ImagesGridDisplayComponent implements OnInit {
   @Output() onSelected: EventEmitter<any> = new EventEmitter();
 
-  curImages: HTMLImageElement[] = [];
   defaultSrc: string = "";
   @ViewChild("containerObj") container;
 
@@ -37,39 +36,34 @@ export class ImagesGridDisplayComponent implements OnInit {
 
   ngOnInit() {}
 
-  //shows or hides all images on the grid
-  ShowCurImages(show: boolean) {
-    this.curImages.forEach((img) => {
-      this.ShowComponent(img, show);
-    });
-  }
-
-  //Set the src of the object to default
-  SetSrcToDefault(index: number) {
-    this.curImages[index].src = this.defaultSrc;
-  }
   //controls the visibility of the given component
-  ShowComponent(img: HTMLImageElement, show: boolean) {
+  ShowComponent(img: HTMLImageElement, show: boolean): void {
     if (show) {
       img.style.display = "block";
     } else {
       img.style.display = "none";
     }
   }
-
-  //Sets the sre to the images at the given index
-  SetSrcTo(index: number, src: string) {
-    this.curImages[index].src = src;
-  }
-
-  onSelect(img: ImgDataModule) {
+  //Call the event that it was selected
+  onSelect(img: ImgDataModule): void {
     this.onSelected.emit(img);
   }
+  //Set the grid width and height this will control how the images are displayed
+  setSize(x: number, y: number): void {
+    document.documentElement.style.setProperty("--gridX", x.toString() + "px");
+    document.documentElement.style.setProperty("--gridY", y.toString() + "px");
+  }
 
-  getDisplay(img: ImgDataModule) {
+  //Returns the img src
+  getDisplay(img: ImgDataModule): string {
     return img.src;
   }
-  getCss(img: ImgDataModule) {
+  //Returns the img css
+  getCss(img: ImgDataModule): string {
     return img.css;
+  }
+  //Returns the Images data
+  getCurImagesData(): ImgDataModule[] {
+    return this.curImagesData;
   }
 }
