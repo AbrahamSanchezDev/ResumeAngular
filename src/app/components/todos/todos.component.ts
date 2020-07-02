@@ -27,10 +27,10 @@ export class TodosComponent implements OnInit {
     this.addOptionToMenu("Delete", (todo) => this.deleteTodo(todo));
   }
   //Add an option to the menu must pass callback like this:  (todo) => this.deleteTodo(todo)
-  addOptionToMenu(displayText: string, callback: Function): void {
+  addOptionToMenu(displayText: string, theCallback: Function): void {
     this.menu.data.push({
       text: displayText,
-      callback: (todo) => callback(todo),
+      callback: theCallback,
     });
   }
   ngOnInit() {
@@ -52,6 +52,7 @@ export class TodosComponent implements OnInit {
   addTodo(todo: Todo): void {
     this.todos.push(todo);
   }
+  //Called by the drag drop component
   drop(event: CdkDragDrop<string[]>): void {
     moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
   }
