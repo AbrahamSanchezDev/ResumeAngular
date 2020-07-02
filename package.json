@@ -25,6 +25,7 @@
     "@angular/router": "~9.1.9",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^5.0.0",
+    "@worldsdev/tools": "0.0.1",
     "gh-pages": "^2.2.0",
     "rxjs": "~6.5.5",
     "tslib": "^1.10.0",
@@ -47,7 +48,7 @@
     "karma-coverage-istanbul-reporter": "^2.1.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.5.3",
-    "protractor": "^5.4.4",
+    "protractor": "^7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.8.3"
