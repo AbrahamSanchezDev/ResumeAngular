@@ -23,26 +23,23 @@ export class TodoItemComponent implements OnInit {
   @Input() moveTo: Function;
   @Input() menu: Menu;
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
-  @ViewChild("inputObj") inputObj: ElementRef;
+  @ViewChild("inputObj") inputObj: ElementRef<HTMLInputElement>;
   @ViewChild(MenuObjComponent) menuControl: MenuObjComponent;
 
-  myMenu: Menu;
+  myMenu: Menu = new Menu();
   editMode: boolean;
   editText: string = "Edit";
-  constructor(private todoServer: TodoService) {}
-
-  ngOnInit() {
-    this.todoServer.onSelected.subscribe((curTodo) => {
+  constructor(public todoServer: TodoService) {
+    todoServer.onSelected.subscribe((curTodo) => {
       this.onSelectTodo(curTodo);
     });
+  }
+  ngOnInit() {
     this.combineMenus();
   }
   //Combine the global menu with the local menu
   combineMenus(): void {
     if (this.menu == null) return;
-    if (this.myMenu == null) {
-      this.myMenu = new Menu();
-    }
     this.myMenu.data.unshift({
       text: this.editText,
       callback: () => this.toggleEdit(),
@@ -60,14 +57,16 @@ export class TodoItemComponent implements OnInit {
   //Toggle the edit on this object
   toggleEdit() {
     this.editMode = !this.editMode;
-    if (this.todo) {
-      this.todo.SetEdit(this.editMode);
-      if (this.editMode) {
-        this.closeMenu();
-      } else {
-        if (this.inputObj) this.todo.title = this.inputObj.nativeElement.value;
+
+    this.todo.SetEdit(this.editMode);
+    if (this.editMode) {
+      this.closeMenu();
+    } else {
+      if (this.inputObj) {
+        this.todo.title = this.inputObj.nativeElement.value;
       }
     }
+
     this.sendEvent();
   }
   //Exit edit moved if it was on
