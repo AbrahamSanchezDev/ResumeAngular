@@ -115,7 +115,7 @@ export class TodoItemComponent implements OnInit {
   removeSelected(): void {
     window.getSelection().removeAllRanges();
   }
-  //End edite mode if it is on
+  //End edit mode if it is on
   endEditMode(data: MenuData) {
     if (data.text == this.editText) {
       return;
