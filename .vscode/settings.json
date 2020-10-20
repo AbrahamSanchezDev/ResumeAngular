@@ -54,6 +54,12 @@
         "command": "ng update @angular/core @angular/cli"
       },
       {
+        "name": "Update Packages",
+        "singleInstance": true,
+        "color": "#fff",
+        "command": "npm update"
+      },
+      {
         "name": "Buid To E:/HTML/Resume ",
         "singleInstance": true,
         "color": "#fff",
